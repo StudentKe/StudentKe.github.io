@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Peter W">
+
+
+
+<meta name="description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta name="keywords" content="机器学习,多变量线性回归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴恩达机器学习-多变量线性回归">
+<meta property="og:url" content="http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/index.html">
+<meta property="og:site_name" content="Always Be a Student">
+<meta property="og:description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoux62j30wc06kaaf.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp3qpsj31640a8q4e.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp9n1lj30rm0fk404.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2rfbj30x209w3zb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp7i9gj31h00sy782.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvcvj30l40bamy4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0c67j30lk0kc413.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvoij30mm0kkabq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp5oczj318m0nwtb6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0llrj30f609c0sy.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp8r6jj30pm0bk3zr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpei8nj315m0f0jua.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpa2lgj30sy0ia0um.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp6fz8j30z20i6abv.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbh0ij30yq07s754.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpakngj312i0jswgy.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp79kqj316i0j8tay.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcxikj312w0jsgnc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp11iej319y0ocn0p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcla4j31ag0pgn1p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxov5xpj30gw02edg4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbpowj304w01o3yh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2v69j302k01s747.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp81m2j304c02amx3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoy20aj306a01uaa2.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg">
+<meta property="og:updated_time" content="2019-01-26T05:03:23.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="吴恩达机器学习-多变量线性回归">
+<meta name="twitter:description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Always Be a Student" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/icon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>吴恩达机器学习-多变量线性回归 | Always Be a Student</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Peter W</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力提高自身的不可替代性</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:a_student_ke@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://weibo.com/p/1005056331741640" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/StudentKe" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="https://www.v2ex.com/member/Astudnet" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/cola-72/" title="知乎"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=278867624" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/peter.woops.5" title="Facebook"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/std_ke" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Peter W</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Peter W</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力提高自身的不可替代性</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:a_student_ke@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://weibo.com/p/1005056331741640" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/StudentKe" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="https://www.v2ex.com/member/Astudnet" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/cola-72/" title="知乎"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=278867624" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/peter.woops.5" title="Facebook"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/std_ke" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-吴恩达机器学习-多变量线性回归" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/26/吴恩达机器学习-多变量线性回归/" class="article-date">
+      <time datetime="2019-01-26T04:41:52.000Z" itemprop="datePublished">2019-01-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      吴恩达机器学习-多变量线性回归
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg" alt=""></p>
+<ul>
+<li>n <em>特征值的数目</em></li>
+<li>m <em>表示训练集样本数</em></li>
+<li>x_1,x_2…x_n <em>表示n个特征值</em></li>
+<li><p>y <em>输出变量</em>。</p>
+</li>
+<li><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg" alt=""> 表示第i个特征向量，他是一个<strong><strong>n</strong></strong>维度向量。</p>
+</li>
+<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg" alt="">第i个向量的第j个特征值<blockquote>
+<p>eg:<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="假设形式"><a href="#假设形式" class="headerlink" title="假设形式"></a>假设形式</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoux62j30wc06kaaf.jpg" alt=""></p>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp3qpsj31640a8q4e.jpg" alt=""><br>某房子的价格 = 基本价格80k+x1平方米<em>0.1k+有x2层</em>0.01k+有x3卧室<em>3k-使用年数</em>2k</p>
+<h4 id="等价形式"><a href="#等价形式" class="headerlink" title="等价形式"></a>等价形式</h4><p>为了方便表示，我们增加一个x0，定义为1，假设此时变成了:</p>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp9n1lj30rm0fk404.jpg" alt=""><br>这就是多元线性回归。</p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><ul>
+<li>这里不把θ(0-n)看做是n+1个独立的变量，而是考虑看做n+1维的θ向量。</li>
+<li>梯度下降<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2rfbj30x209w3zb.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp7i9gj31h00sy782.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvcvj30l40bamy4.jpg" alt=""></li>
+</ul>
+<h2 id="多元梯度下降算法演练"><a href="#多元梯度下降算法演练" class="headerlink" title="多元梯度下降算法演练"></a>多元梯度下降算法演练</h2><h3 id="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"><a href="#特征缩放（不需要过于精确，目的只是让梯度下降更快一些）" class="headerlink" title="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"></a>特征缩放（不需要过于精确，目的只是让梯度下降更快一些）</h3><ul>
+<li>当特征值的取值范围相差过多时，代价函数的等值曲线会非常的扁，会导致梯度下降非常慢。</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0c67j30lk0kc413.jpg" alt=""></p>
+<ul>
+<li><p>此时需要对特征值进行放缩处理，使得特征值的取值范围更加接近。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvoij30mm0kkabq.jpg" alt=""></p>
+</li>
+<li><p>一般的，尽量让特征值的取值范围都在(-1,1)之间。（如果不在，但区间接近，问题也不是很大。只要不是过分的大或过分的小。）</p>
+</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp5oczj318m0nwtb6.jpg" alt=""></p>
+<p>这些都是可以接受的范围</p>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0llrj30f609c0sy.jpg" alt=""></p>
+<ul>
+<li>除了除以取值范围之外，我们还可以进行均值归一化处理。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp8r6jj30pm0bk3zr.jpg" alt=""></li>
+<li>具体做法：减去平均值再除以取值范围<ul>
+<li>例子：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpei8nj315m0f0jua.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<h3 id="学习率α"><a href="#学习率α" class="headerlink" title="学习率α"></a>学习率α</h3><ul>
+<li>我们可以画出J关于迭代次数的函数图像，如果梯度下降算法正常进行，那么每次迭代之后的J的值都应该变小。如果在某一段区间内，函数的图像已经变得非常平缓了，那么说明此时梯度下降算法差不多已经收敛了。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpa2lgj30sy0ia0um.jpg" alt=""></li>
+<li><p>这样的函数曲线也可以帮助我们判断梯度下降算法是否正常工作，比如，学习率α过大时：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp6fz8j30z20i6abv.jpg" alt=""></p>
+</li>
+<li><p>尝试一系列的α：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbh0ij30yq07s754.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="可供选择的特征以及如何得到不同的学习算法以及多特征回归"><a href="#可供选择的特征以及如何得到不同的学习算法以及多特征回归" class="headerlink" title="可供选择的特征以及如何得到不同的学习算法以及多特征回归"></a>可供选择的特征以及如何得到不同的学习算法以及多特征回归</h3><ul>
+<li>同一个问题可以有多种特征的选择方法<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpakngj312i0jswgy.jpg" alt=""></li>
+</ul>
+<h4 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h4><ul>
+<li>如何更好的拟合<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp79kqj316i0j8tay.jpg" alt=""></li>
+</ul>
+<p><strong><strong>如果采取上面的方法，那么放缩法就显得尤为重要！</strong></strong></p>
+<ul>
+<li>选取特征的方法有很多<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcxikj312w0jsgnc.jpg" alt=""></li>
+</ul>
+<h4 id="正规方程（不需要放缩）"><a href="#正规方程（不需要放缩）" class="headerlink" title="正规方程（不需要放缩）"></a>正规方程（不需要放缩）</h4><blockquote>
+<p>对于某些线性回归问题，有更好的方法来求得参数θ的最优值。</p>
+</blockquote>
+<p>正规方程区别于迭代的方法求得最优θ，它可以一步求得最优的θ。</p>
+<p>引例：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp11iej319y0ocn0p.jpg" alt=""></p>
+<p>实际上，我们不对向量θ中每一个都求偏导，这样的话过于冗杂。而是用一种等价的方法。</p>
+<ul>
+<li>如何实现正规方程法？<br>给定一个训练集，我们加一列x0 = (1,1,1,…1) 然后构建矩阵X和向量y。使得代价函数最小的θ即可求出。</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcla4j31ag0pgn1p.jpg" alt=""></p>
+<blockquote>
+<p>证明：<br>设假设函<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxov5xpj30gw02edg4.jpg" alt=""><br>即<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbpowj304w01o3yh.jpg" alt=""></p>
+</blockquote>
+<p>在拟合成功时，输出函数y约等于<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2v69j302k01s747.jpg" alt=""></p>
+<p>故<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp81m2j304c02amx3.jpg" alt=""><br>在X为方阵的时候，才可逆，即就是：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoy20aj306a01uaa2.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg" alt=""></p>
+<ul>
+<li>X (设计矩阵)<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg" alt=""></li>
+</ul>
+<h4 id="何时使用正规方程和梯度下降？"><a href="#何时使用正规方程和梯度下降？" class="headerlink" title="何时使用正规方程和梯度下降？"></a>何时使用正规方程和梯度下降？</h4><p>梯度下降和正规方程的优缺点对比：<br>只要特征的数量不是很大 (&lt;10000)都可以采用正规方程法</p>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg" alt=""></p>
+<h4 id="正规方程不可逆情况下的解决办法"><a href="#正规方程不可逆情况下的解决办法" class="headerlink" title="正规方程不可逆情况下的解决办法"></a>正规方程不可逆情况下的解决办法</h4><ul>
+<li>检查是否有多余（线性相关）特征（线代知识）</li>
+<li>如果特征过多的话，试着删除一些特征(不影响的情况下)，或者正则化（later）。 </li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
+        <p><span>发布时间:</span>2019-01-26, 12:41:52</p>
+        <p><span>最后更新:</span>2019-01-26, 13:03:23</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/26/吴恩达机器学习-多变量线性回归/" title="吴恩达机器学习-多变量线性回归">http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/01/26/吴恩达机器学习-单变量线性回归/">
+                    吴恩达机器学习-单变量线性回归
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多特征值"><span class="toc-number">1.</span> <span class="toc-text">多特征值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表示方法"><span class="toc-number">1.1.</span> <span class="toc-text">表示方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设形式"><span class="toc-number">1.2.</span> <span class="toc-text">假设形式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例"><span class="toc-number">1.2.1.</span> <span class="toc-text">例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#等价形式"><span class="toc-number">1.2.2.</span> <span class="toc-text">等价形式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降"><span class="toc-number">2.</span> <span class="toc-text">梯度下降</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多元梯度下降算法演练"><span class="toc-number">3.</span> <span class="toc-text">多元梯度下降算法演练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"><span class="toc-number">3.1.</span> <span class="toc-text">特征缩放（不需要过于精确，目的只是让梯度下降更快一些）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习率α"><span class="toc-number">3.2.</span> <span class="toc-text">学习率α</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可供选择的特征以及如何得到不同的学习算法以及多特征回归"><span class="toc-number">3.3.</span> <span class="toc-text">可供选择的特征以及如何得到不同的学习算法以及多特征回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多项式回归"><span class="toc-number">3.3.1.</span> <span class="toc-text">多项式回归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正规方程（不需要放缩）"><span class="toc-number">3.3.2.</span> <span class="toc-text">正规方程（不需要放缩）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#何时使用正规方程和梯度下降？"><span class="toc-number">3.3.3.</span> <span class="toc-text">何时使用正规方程和梯度下降？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正规方程不可逆情况下的解决办法"><span class="toc-number">3.3.4.</span> <span class="toc-text">正规方程不可逆情况下的解决办法</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"吴恩达机器学习-多变量线性回归　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/01/26/吴恩达机器学习-单变量线性回归/" title="下一篇: 吴恩达机器学习-单变量线性回归">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-单变量线性回归/">吴恩达机器学习-单变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-绪论/">吴恩达机器学习-绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/代码共享/">代码共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/scripts-用python格式化json/">scripts - 用python格式化json</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建git服务器/">搭建git服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建wordpress个人博客/">搭建wordpress个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/盗号所启发的/">盗号所启发的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-爬虫入门/">Python-爬虫入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-鸡汤/">Python-鸡汤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-聊天机器人/">Python-聊天机器人</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/机器学习实战-kNN/">机器学习实战-kNN</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-FCFS/">Python-FCFS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP分页/">PHP分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Samba服务器/">搭建Samba服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DHCP服务器/">搭建DHCP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Seafile网盘/">搭建Seafile网盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建LAMP环境/">搭建LAMP环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DNS服务器/">搭建DNS服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建NFS系统/">搭建NFS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/自制一个屏蔽百度广告的chrom插件/">自制一个屏蔽百度广告的chrom插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/一次上岸/">一次上岸</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Peter W
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
