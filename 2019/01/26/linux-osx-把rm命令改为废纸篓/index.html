@@ -15,14 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="linux的设计哲学假定了用户知道自己干了什么并为自己的行为负责(其实并不知道)，甚至是 sudo rm -rf /,当然我一般是不会愚蠢到执行这个指令，然而昨天还是误删了一大堆重要的东西（还没有备份到时间机器。。。），为了纪念一早上恢复的血泪史和避免今后出现这种问题。决定将rm命令改为移动到回收站.">
+<meta name="keywords" content="Linux,OS X">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux&#x2F;osx-把rm命令改为废纸篓">
+<meta property="og:url" content="http://yoursite.com/2019/01/26/linux-osx-把rm命令改为废纸篓/index.html">
 <meta property="og:site_name" content="Always Be a Student">
+<meta property="og:description" content="linux的设计哲学假定了用户知道自己干了什么并为自己的行为负责(其实并不知道)，甚至是 sudo rm -rf /,当然我一般是不会愚蠢到执行这个指令，然而昨天还是误删了一大堆重要的东西（还没有备份到时间机器。。。），为了纪念一早上恢复的血泪史和避免今后出现这种问题。决定将rm命令改为移动到回收站.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-26T01:21:52.439Z">
+<meta property="og:updated_time" content="2019-01-26T07:08:28.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="linux&#x2F;osx-把rm命令改为废纸篓">
+<meta name="twitter:description" content="linux的设计哲学假定了用户知道自己干了什么并为自己的行为负责(其实并不知道)，甚至是 sudo rm -rf /,当然我一般是不会愚蠢到执行这个指令，然而昨天还是误删了一大堆重要的东西（还没有备份到时间机器。。。），为了纪念一早上恢复的血泪史和避免今后出现这种问题。决定将rm命令改为移动到回收站.">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -54,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>tags | Always Be a Student</title>
+<title>linux/osx-把rm命令改为废纸篓 | Always Be a Student</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -64,7 +68,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -291,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux-osx-把rm命令改为废纸篓" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2019-01-26T01:21:52.000Z" itemprop="datePublished">2019-01-26</time>
+      <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" class="article-date">
+      <time datetime="2019-01-26T07:07:18.000Z" itemprop="datePublished">2019-01-26</time>
 </a>
 
 
@@ -310,7 +314,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      linux/osx-把rm命令改为废纸篓
     </h1>
   
 
@@ -320,6 +324,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS-X/">OS X</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -327,96 +335,81 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/CentOS/" style="font-size: 25.5px; color: #404040">CentOS</a> <a href="/tags/Linux/" style="font-size: 35px; color: #000">Linux</a> <a href="/tags/OS-X/" style="font-size: 16px; color: #808080">OS X</a> <a href="/tags/PHP/" style="font-size: 25.5px; color: #404040">PHP</a> <a href="/tags/Python/" style="font-size: 30.25px; color: #202020">Python</a> <a href="/tags/Ubuntu/" style="font-size: 25.5px; color: #404040">Ubuntu</a> <a href="/tags/chrome插件/" style="font-size: 16px; color: #808080">chrome插件</a> <a href="/tags/单变量线性回归/" style="font-size: 16px; color: #808080">单变量线性回归</a> <a href="/tags/多变量线性回归/" style="font-size: 16px; color: #808080">多变量线性回归</a> <a href="/tags/学习笔记/" style="font-size: 16px; color: #808080">学习笔记</a> <a href="/tags/操作系统/" style="font-size: 16px; color: #808080">操作系统</a> <a href="/tags/数据结构/" style="font-size: 16px; color: #808080">数据结构</a> <a href="/tags/机器学习/" style="font-size: 20.75px; color: #606060">机器学习</a> <a href="/tags/机器学习实战/" style="font-size: 16px; color: #808080">机器学习实战</a> <a href="/tags/杂记/" style="font-size: 16px; color: #808080">杂记</a> <a href="/tags/爬虫/" style="font-size: 16px; color: #808080">爬虫</a> <a href="/tags/考研/" style="font-size: 16px; color: #808080">考研</a> <a href="/tags/自用脚本/" style="font-size: 16px; color: #808080">自用脚本</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
+        <blockquote>
+<p>linux的设计哲学假定了用户知道自己干了什么并为自己的行为负责(其实并不知道)，甚至是 <code>sudo rm -rf /</code>,当然我一般是不会愚蠢到执行这个指令，然而昨天还是误删了一大堆重要的东西（还没有备份到时间机器。。。），为了纪念一早上恢复的血泪史和避免今后出现这种问题。决定将rm命令改为移动到回收站.</p>
+</blockquote>
+<a id="more"></a>
+<p>有了这个想法后发现网上已经有了非常成熟的作品了，安装下来试用一番：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>wget --no-check-certificate https://raw.githubusercontent.com/LaiJingli/rmtrash/master/rmtrash.sh</code><br><code>mv rmtrash.sh /bin/</code><br><code>chmod +x /bin/rmtrash.sh</code></p>
+<h3 id="如果仅对单个用户启用回收站，只需第一次执行如下命令即可："><a href="#如果仅对单个用户启用回收站，只需第一次执行如下命令即可：" class="headerlink" title="如果仅对单个用户启用回收站，只需第一次执行如下命令即可："></a>如果仅对单个用户启用回收站，只需第一次执行如下命令即可：</h3><p><code>/bin/rmtrash.sh</code></p>
+<h3 id="如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可："><a href="#如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可：" class="headerlink" title="如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可："></a>如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可：</h3><p><code>echo &quot;alias rm=/bin/rmtrash.sh&quot; &gt;&gt;/etc/bashrc</code></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><code>rm -h</code><br><code>Usage1: rmtrash.sh file1 [file2] [dir3] [....] delete the files or dirs,and mv them to the rmtrash recycle bin</code><br><code>Usage2: rm file1 [file2] [dir3] [....] delete the files or dirs,and mv them to the rmtrash recycle bin</code><br><code>rm is alias to rmtrash.sh.</code></p>
+<h3 id="options"><a href="#options" class="headerlink" title="options:"></a>options:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-f mv one or more files to the rmtrash recycle bin</span><br><span class="line">-r mv one or more files to the rmtrash recycle bin</span><br><span class="line">-fr mv one or more files to the rmtrash recycle bin</span><br><span class="line">-rf mv one or more files to the rmtrash recycle bin</span><br><span class="line">-R Restore selected files to the originalpath from rmtrash recycle bin</span><br><span class="line">-l list the contens of rmtrash recycle bin</span><br><span class="line">-i show detailed log of the deleted file history</span><br><span class="line">-d delete one or more files by user's input file name from the trash</span><br><span class="line">-e empty the rmtrash recycle bin</span><br><span class="line">-h display this help menu</span><br></pre></td></tr></table></figure>
+<h3 id="如果有问题，执行以下2条命令排查-或者退出重新登录系统"><a href="#如果有问题，执行以下2条命令排查-或者退出重新登录系统" class="headerlink" title="如果有问题，执行以下2条命令排查,或者退出重新登录系统"></a>如果有问题，执行以下2条命令排查,或者退出重新登录系统</h3><p><code>source ~/.bashrc</code><br><code>alias |grep rm</code></p>
+<h2 id="如果需要彻底删除文件"><a href="#如果需要彻底删除文件" class="headerlink" title="如果需要彻底删除文件"></a>如果需要彻底删除文件</h2><ol>
+<li><h1 id="rm-e-清空回收站"><a href="#rm-e-清空回收站" class="headerlink" title="rm -e 清空回收站"></a>rm -e 清空回收站</h1></li>
+<li><h1 id="bin-rm-file-直接删除文件而不经过回收站"><a href="#bin-rm-file-直接删除文件而不经过回收站" class="headerlink" title="/bin/rm file 直接删除文件而不经过回收站"></a>/bin/rm file 直接删除文件而不经过回收站</h1></li>
+</ol>
+<h2 id="适用系统linux、mac-osx"><a href="#适用系统linux、mac-osx" class="headerlink" title="适用系统linux、mac osx"></a>适用系统linux、mac osx</h2>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">linux/osx-把rm命令改为废纸篓</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
+        <p><span>发布时间:</span>2019-01-26, 15:07:18</p>
+        <p><span>最后更新:</span>2019-01-26, 15:08:28</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" title="linux/osx-把rm命令改为废纸篓">http://yoursite.com/2019/01/26/linux-osx-把rm命令改为废纸篓/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/26/linux-osx-把rm命令改为废纸篓/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/01/26/吴恩达机器学习-多变量线性回归/">
+                    吴恩达机器学习-多变量线性回归
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如果仅对单个用户启用回收站，只需第一次执行如下命令即可："><span class="toc-number">1.1.</span> <span class="toc-text">如果仅对单个用户启用回收站，只需第一次执行如下命令即可：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可："><span class="toc-number">1.2.</span> <span class="toc-text">如果想对全局所有用户启用回收站，需要修改bashrc全局配置文件后即可：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#options"><span class="toc-number">2.1.</span> <span class="toc-text">options:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果有问题，执行以下2条命令排查-或者退出重新登录系统"><span class="toc-number">2.2.</span> <span class="toc-text">如果有问题，执行以下2条命令排查,或者退出重新登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果需要彻底删除文件"><span class="toc-number">3.</span> <span class="toc-text">如果需要彻底删除文件</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#rm-e-清空回收站"><span class="toc-number"></span> <span class="toc-text">rm -e 清空回收站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bin-rm-file-直接删除文件而不经过回收站"><span class="toc-number"></span> <span class="toc-text">/bin/rm file 直接删除文件而不经过回收站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#适用系统linux、mac-osx"><span class="toc-number">1.</span> <span class="toc-text">适用系统linux、mac osx</span></a></li></ol>
+        
+    </li></div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -434,7 +427,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"tags　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"linux/osx-把rm命令改为废纸篓　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -453,8 +446,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/tags/index.html';
-            this.page.identifier = 'tags/index.html';
+            this.page.url = 'http://yoursite.com/2019/01/26/linux-osx-把rm命令改为废纸篓/';
+            this.page.identifier = '2019/01/26/linux-osx-把rm命令改为废纸篓/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -471,6 +464,24 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/01/26/吴恩达机器学习-多变量线性回归/" title="下一篇: 吴恩达机器学习-多变量线性回归">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">linux/osx-把rm命令改为废纸篓</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-单变量线性回归/">吴恩达机器学习-单变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-绪论/">吴恩达机器学习-绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/代码共享/">代码共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/scripts-用python格式化json/">scripts - 用python格式化json</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建git服务器/">搭建git服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建wordpress个人博客/">搭建wordpress个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/盗号所启发的/">盗号所启发的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-爬虫入门/">Python-爬虫入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-鸡汤/">Python-鸡汤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-聊天机器人/">Python-聊天机器人</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/机器学习实战-kNN/">机器学习实战-kNN</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-FCFS/">Python-FCFS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP分页/">PHP分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Samba服务器/">搭建Samba服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DHCP服务器/">搭建DHCP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Seafile网盘/">搭建Seafile网盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建LAMP环境/">搭建LAMP环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DNS服务器/">搭建DNS服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建NFS系统/">搭建NFS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/自制一个屏蔽百度广告的chrom插件/">自制一个屏蔽百度广告的chrom插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/一次上岸/">一次上岸</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/hello-world/">Hello World</a></li></ul>
 
 
 

@@ -112,7 +112,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -206,7 +206,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS-X/">OS X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
                     </div>
                 </section>
                 
@@ -297,6 +297,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-linux-osx-把rm命令改为废纸篓" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" class="article-date">
+      <time datetime="2019-01-26T07:07:18.000Z" itemprop="datePublished">2019-01-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">linux/osx-把rm命令改为废纸篓</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <blockquote>
+<p>linux的设计哲学假定了用户知道自己干了什么并为自己的行为负责(其实并不知道)，甚至是 <code>sudo rm -rf /</code>,当然我一般是不会愚蠢到执行这个指令，然而昨天还是误删了一大堆重要的东西（还没有备份到时间机器。。。），为了纪念一早上恢复的血泪史和避免今后出现这种问题。决定将rm命令改为移动到回收站.</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS-X/">OS X</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-吴恩达机器学习-多变量线性回归" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -326,91 +392,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg" alt=""></p>
-<ul>
-<li>n <em>特征值的数目</em></li>
-<li>m <em>表示训练集样本数</em></li>
-<li>x_1,x_2…x_n <em>表示n个特征值</em></li>
-<li><p>y <em>输出变量</em>。</p>
-</li>
-<li><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg" alt=""> 表示第i个特征向量，他是一个<strong><strong>n</strong></strong>维度向量。</p>
-</li>
-<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg" alt="">第i个向量的第j个特征值<blockquote>
-<p>eg:<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg" alt=""></p>
-</blockquote>
-</li>
-</ul>
-<h3 id="假设形式"><a href="#假设形式" class="headerlink" title="假设形式"></a>假设形式</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoux62j30wc06kaaf.jpg" alt=""></p>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp3qpsj31640a8q4e.jpg" alt=""><br>某房子的价格 = 基本价格80k+x1平方米<em>0.1k+有x2层</em>0.01k+有x3卧室<em>3k-使用年数</em>2k</p>
-<h4 id="等价形式"><a href="#等价形式" class="headerlink" title="等价形式"></a>等价形式</h4><p>为了方便表示，我们增加一个x0，定义为1，假设此时变成了:</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp9n1lj30rm0fk404.jpg" alt=""><br>这就是多元线性回归。</p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><ul>
-<li>这里不把θ(0-n)看做是n+1个独立的变量，而是考虑看做n+1维的θ向量。</li>
-<li>梯度下降<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2rfbj30x209w3zb.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp7i9gj31h00sy782.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvcvj30l40bamy4.jpg" alt=""></li>
-</ul>
-<h2 id="多元梯度下降算法演练"><a href="#多元梯度下降算法演练" class="headerlink" title="多元梯度下降算法演练"></a>多元梯度下降算法演练</h2><h3 id="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"><a href="#特征缩放（不需要过于精确，目的只是让梯度下降更快一些）" class="headerlink" title="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"></a>特征缩放（不需要过于精确，目的只是让梯度下降更快一些）</h3><ul>
-<li>当特征值的取值范围相差过多时，代价函数的等值曲线会非常的扁，会导致梯度下降非常慢。</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0c67j30lk0kc413.jpg" alt=""></p>
-<ul>
-<li><p>此时需要对特征值进行放缩处理，使得特征值的取值范围更加接近。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvoij30mm0kkabq.jpg" alt=""></p>
-</li>
-<li><p>一般的，尽量让特征值的取值范围都在(-1,1)之间。（如果不在，但区间接近，问题也不是很大。只要不是过分的大或过分的小。）</p>
-</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp5oczj318m0nwtb6.jpg" alt=""></p>
-<p>这些都是可以接受的范围</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0llrj30f609c0sy.jpg" alt=""></p>
-<ul>
-<li>除了除以取值范围之外，我们还可以进行均值归一化处理。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp8r6jj30pm0bk3zr.jpg" alt=""></li>
-<li>具体做法：减去平均值再除以取值范围<ul>
-<li>例子：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpei8nj315m0f0jua.jpg" alt=""></li>
-</ul>
-</li>
-</ul>
-<h3 id="学习率α"><a href="#学习率α" class="headerlink" title="学习率α"></a>学习率α</h3><ul>
-<li>我们可以画出J关于迭代次数的函数图像，如果梯度下降算法正常进行，那么每次迭代之后的J的值都应该变小。如果在某一段区间内，函数的图像已经变得非常平缓了，那么说明此时梯度下降算法差不多已经收敛了。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpa2lgj30sy0ia0um.jpg" alt=""></li>
-<li><p>这样的函数曲线也可以帮助我们判断梯度下降算法是否正常工作，比如，学习率α过大时：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp6fz8j30z20i6abv.jpg" alt=""></p>
-</li>
-<li><p>尝试一系列的α：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbh0ij30yq07s754.jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="可供选择的特征以及如何得到不同的学习算法以及多特征回归"><a href="#可供选择的特征以及如何得到不同的学习算法以及多特征回归" class="headerlink" title="可供选择的特征以及如何得到不同的学习算法以及多特征回归"></a>可供选择的特征以及如何得到不同的学习算法以及多特征回归</h3><ul>
-<li>同一个问题可以有多种特征的选择方法<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpakngj312i0jswgy.jpg" alt=""></li>
-</ul>
-<h4 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h4><ul>
-<li>如何更好的拟合<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp79kqj316i0j8tay.jpg" alt=""></li>
-</ul>
-<p><strong><strong>如果采取上面的方法，那么放缩法就显得尤为重要！</strong></strong></p>
-<ul>
-<li>选取特征的方法有很多<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcxikj312w0jsgnc.jpg" alt=""></li>
-</ul>
-<h4 id="正规方程（不需要放缩）"><a href="#正规方程（不需要放缩）" class="headerlink" title="正规方程（不需要放缩）"></a>正规方程（不需要放缩）</h4><blockquote>
-<p>对于某些线性回归问题，有更好的方法来求得参数θ的最优值。</p>
-</blockquote>
-<p>正规方程区别于迭代的方法求得最优θ，它可以一步求得最优的θ。</p>
-<p>引例：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp11iej319y0ocn0p.jpg" alt=""></p>
-<p>实际上，我们不对向量θ中每一个都求偏导，这样的话过于冗杂。而是用一种等价的方法。</p>
-<ul>
-<li>如何实现正规方程法？<br>给定一个训练集，我们加一列x0 = (1,1,1,…1) 然后构建矩阵X和向量y。使得代价函数最小的θ即可求出。</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcla4j31ag0pgn1p.jpg" alt=""></p>
-<blockquote>
-<p>证明：<br>设假设函<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxov5xpj30gw02edg4.jpg" alt=""><br>即<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbpowj304w01o3yh.jpg" alt=""></p>
-</blockquote>
-<p>在拟合成功时，输出函数y约等于<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2v69j302k01s747.jpg" alt=""></p>
-<p>故<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp81m2j304c02amx3.jpg" alt=""><br>在X为方阵的时候，才可逆，即就是：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoy20aj306a01uaa2.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg" alt=""></p>
-<ul>
-<li>X (设计矩阵)<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg" alt=""></li>
-</ul>
-<h4 id="何时使用正规方程和梯度下降？"><a href="#何时使用正规方程和梯度下降？" class="headerlink" title="何时使用正规方程和梯度下降？"></a>何时使用正规方程和梯度下降？</h4><p>梯度下降和正规方程的优缺点对比：<br>只要特征的数量不是很大 (&lt;10000)都可以采用正规方程法</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg" alt=""></p>
-<h4 id="正规方程不可逆情况下的解决办法"><a href="#正规方程不可逆情况下的解决办法" class="headerlink" title="正规方程不可逆情况下的解决办法"></a>正规方程不可逆情况下的解决办法</h4><ul>
-<li>检查是否有多余（线性相关）特征（线代知识）</li>
-<li>如果特征过多的话，试着删除一些特征(不影响的情况下)，或者正则化（later）。 </li>
-</ul>
-
+              <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3>
+          
       
     </div>
     
@@ -423,6 +406,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/吴恩达机器学习-多变量线性回归/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -469,71 +456,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjulzdpb9j30u80e8gmu.jpg" alt=""></p>
-<h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><ul>
+              <h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><ul>
 <li>m <em>训练集样本的数量</em></li>
 <li>x <em>输入的特征值</em></li>
 <li>y <em>输出的变量</em></li>
 <li>(x,y) <em>一个训练样本</em></li>
-<li>(x(i), y(i)) <em>第i个训练样本</em></li>
-</ul>
-<blockquote>
-<p>我们通常使用h（hypothesis）表示一个函数。在预测房价的例子中，x对应房屋面积，y对应房屋价格，根据监督学习我们可以构建一个函数表达式h：<br>　　hθ(x) = θ0 + θ1x<br>我们将这种可以构建出线性函数的模型称为线性回归模型。在这里只有一个特征变量x，因此我们称这种单一变量模型为单变量线性回归。</p>
-</blockquote>
-<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><h4 id="代价函数的数学定义"><a href="#代价函数的数学定义" class="headerlink" title="代价函数的数学定义"></a>代价函数的数学定义</h4><p>现在我们要做的就是确<br>定θ0和θ1的值，使得h(x)的结果和y相差尽量小，<br>算做平方差尽量小,即让<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjumi4z2xj30cs03kaa5.jpg" alt="">量小。</p>
-<hr>
-<p>定义代价函数为<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjun1bzwcj30qo05mt94.jpg" alt="">（前面的求和等是为了让表达式更清晰）</p>
-<hr>
-<p>吴恩达视频笔记：</p>
-<h2 id="IMAGE"><a href="#IMAGE" class="headerlink" title="![IMAGE]"></a>![IMAGE]<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjunjxzjqj31eu0ukq8e.jpg" alt=""></h2><h4 id="代价函数是用来做什么的以及如何使用"><a href="#代价函数是用来做什么的以及如何使用" class="headerlink" title="代价函数是用来做什么的以及如何使用"></a>代价函数是用来做什么的以及如何使用</h4><ul>
-<li>用简单的代价函数来理解其概念<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjunscf8uj30eg0h6jsb.jpg" alt=""></li>
-</ul>
-<p>当θ=0时，假设函数h(x)和代价函数j(θ1)的情况如图：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuoimvoej30ve0ksmzr.jpg" alt=""><br>当θ=0.5时，<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuoz3souj30wu0l8wgp.jpg" alt=""><br>当θ=0时，<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjupgfanjj30v80jc75x.jpg" alt=""></p>
-<p>….</p>
-<p>不同的θ1对应不同的h(x)曲线，对应不同的j(θ)值，在选取出最小的j(θ)，就是线性回归的目标函数。（此例中，θ=1）也就是可以完美的拟合数据。</p>
-<ul>
-<li>进一步理解代价函数（保留两个θ）<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjups43crj30i80hmabl.jpg" alt=""></li>
-</ul>
-<p>此时，代价函数图像变为：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjur4fh3bj30u80iqtax.jpg" alt=""><br>其对应的高度即为goal,可用等高线图表表示：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuriquc9j30ws0fs76z.jpg" alt=""></p>
-<hr>
-<h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>![IMAGE]<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjus6718aj30uk0em40r.jpg" alt=""><br>给定初始化θ0=0，θ1=0，不停地改变其值，直到求出最小值J或者局部最小值J。</p>
-<h4 id="梯度下降法工作原理"><a href="#梯度下降法工作原理" class="headerlink" title="梯度下降法工作原理"></a>梯度下降法工作原理</h4><p>goal：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjusmk36kj30t20giwgd.jpg" alt=""><br>从某一点出发开始，向四周下降最快的方向迈出一小步。逐步收敛至最低点：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjusvvmhtj30wm0f8mz6.jpg" alt=""><br>如此重复，每次都到达局部最优。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuugz9f5j30sy0gcdht.jpg" alt=""></p>
-<h4 id="梯度下降法的数学原理"><a href="#梯度下降法的数学原理" class="headerlink" title="梯度下降法的数学原理"></a>梯度下降法的数学原理</h4><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuv1zvq8j30t20fgdhb.jpg" alt=""></p>
-<h5 id="符号定义-1"><a href="#符号定义-1" class="headerlink" title="符号定义"></a>符号定义</h5><ul>
-<li><strong>*</strong>:=<strong>*</strong>  _赋值_</li>
-<li><strong>*</strong>=<strong>*</strong>  <em>断言,逻辑运算</em></li>
-<li><strong>*</strong>α<strong>*</strong> <em>学习率，步长，如果α很大，那么梯度下降的就很迅速</em></li>
-<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuzplhs7j305y02u3yl.jpg" alt=""> <em>导数项，暂不讨论</em></li>
-</ul>
-<h5 id="同步更新-θ0和θ1"><a href="#同步更新-θ0和θ1" class="headerlink" title="*!同步更新 θ0和θ1*"></a><strong>*</strong>!同步更新 θ0和θ1<strong>*</strong></h5><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv09yvrnj30vg06u0tx.jpg" alt=""></p>
-<h4 id="深入理解梯度下降算法工作原理"><a href="#深入理解梯度下降算法工作原理" class="headerlink" title="深入理解梯度下降算法工作原理"></a>深入理解梯度下降算法工作原理</h4><h5 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h5><ul>
-<li>导数项<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv0nldp1j314w0pmn0l.jpg" alt=""><br>学习速率<em>导数 === 学习速率</em>斜率 </li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv1lrz2jj30cu09y3yy.jpg" alt=""></p>
-<p>θ经过此次变化后，总向着正确的方向移动了一小点（无论是增加还是减少），也就是更接近最小值。</p>
-<ul>
-<li><p>学习速率α</p>
-<ul>
-<li>步长太小，移动距离很小，需要很多步才能达到全局最优。</li>
-<li>步长太大，移动距离太大，很可能导致无法收敛。</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv20xh5sj316e0nedje.jpg" alt=""></p>
-<h5 id="解出局部最低点时？"><a href="#解出局部最低点时？" class="headerlink" title="解出局部最低点时？"></a>解出局部最低点时？</h5><p>如果已经处在了最优点（最低点），此时导数项为0，θ不进行更新。（这也是我们所想要的）</p>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv2ap72qj314q0m4djx.jpg" alt=""></p>
-<p>在越接近局部最优时，导数越来越接近0（曲线越来越平缓），即使α不变，也会逐步找到局部最优解。</p>
-<h3 id="线性回归的梯度下降"><a href="#线性回归的梯度下降" class="headerlink" title="线性回归的梯度下降"></a>线性回归的梯度下降</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv2y8ufyj318g0iiwh2.jpg" alt=""><br>求导：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv3tycqoj315g0jkdj7.jpg" alt=""></p>
-<p><img src="quiver-image-url/8601D7B744201921C6553C44FD41F302.jpg =523x278" alt="IMAGE"></p>
-<h4 id="如何实现？"><a href="#如何实现？" class="headerlink" title="如何实现？"></a>如何实现？</h4><p>问题：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv47z7moj30t20fgdhb.jpg" alt=""></p>
-<p>反复梯度下降：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv4mj385j314s0kmae3.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv50sw86j31420ii0wo.jpg" alt=""></p>
-<p>越来越符合数据：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv5d9go5j314a0jm789.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv5pgbrhj314s0jwtcq.jpg" alt=""></p>
-<hr>
-<p>至此，就是batch梯度下降算法，在每一次梯度下降，都会遍历训练集的样本。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjv6bpto4j30zw0goac7.jpg" alt=""></p>
-
+<li>(x(i), y(i)) <em>第i个训练样本</em>
+          
       
-    </div>
+    </li></ul></div>
     
     <div class="article-info article-info-index">
       
@@ -544,6 +475,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/吴恩达机器学习-单变量线性回归/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -650,33 +585,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><ul>
+              <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><ul>
 <li>主要是和研友一起讨论一些程序问题，发来发去太麻烦，而且windows和osx的编码集还不一样，总之，，诸多问题。</li>
 <li>便萌生了写一个大家都可以在线看代码的网站。</li>
 <li>主要功能就是预览代码。其次可以上传自己的代码</li>
-<li>上传文件是一个非常危险的行为，尽管如此，我还是没有做任何过滤措施，这是非常危险的行为（时间有限）。</li>
-</ul>
-<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><ul>
-<li>cooperate //项目文件<ul>
-<li>files.php //获取并返回文件内容</li>
-<li>index.php //入口文件，，主页</li>
-<li>postfile.php //上传文件</li>
-<li>source // 资源文件夹<ul>
-<li>main.css</li>
-<li>main.js</li>
-<li>…</li>
-</ul>
-</li>
-<li>toughter //共享代码文件存储的文件夹</li>
-</ul>
-</li>
-</ul>
-<h3 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// files.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openfile</span><span class="params">($dir)</span></span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    $filepath = dirname(<span class="keyword">__FILE__</span>).<span class="string">"/toghter/"</span>.$dir;</span><br><span class="line">    $f = fopen($filepath,r)<span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"&lt;b&gt;ERROR！&lt;/b&gt;"</span>);</span><br><span class="line">    $each = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span>(!feof($f)) &#123;</span><br><span class="line">        $each = $each.fgets($f) . <span class="string">"\n"</span>;  </span><br><span class="line">     &#125;</span><br><span class="line">    fclose($f);</span><br><span class="line">    <span class="keyword">return</span> $each;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_scandir</span><span class="params">($dir)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//定义一个数组</span></span><br><span class="line">    $files = <span class="keyword">array</span>();</span><br><span class="line">    <span class="comment">//检测是否存在文件</span></span><br><span class="line">    <span class="keyword">if</span> (is_dir($dir)) &#123;</span><br><span class="line">        <span class="comment">//打开目录</span></span><br><span class="line">        <span class="keyword">if</span> ($handle = opendir($dir)) &#123;</span><br><span class="line">            <span class="comment">//返回当前文件的条目</span></span><br><span class="line">            <span class="keyword">while</span> (($file = readdir($handle)) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">                <span class="comment">//去除特殊目录</span></span><br><span class="line">                <span class="keyword">if</span> ($file != <span class="string">"."</span> &amp;&amp; $file != <span class="string">".."</span>) &#123;</span><br><span class="line">                    <span class="comment">//判断子目录是否还存在子目录</span></span><br><span class="line">                    <span class="keyword">if</span> (is_dir($dir . <span class="string">"/"</span> . $file)) &#123;</span><br><span class="line">                        <span class="comment">//递归调用本函数，再次获取目录</span></span><br><span class="line">                        $files[$file] = my_scandir($dir . <span class="string">"/"</span> . $file);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="comment">//获取目录数组</span></span><br><span class="line">                        $files[] = $dir . <span class="string">"/"</span> . $file;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//关闭文件夹</span></span><br><span class="line">            closedir($handle);</span><br><span class="line">            <span class="comment">//返回文件夹数组</span></span><br><span class="line">            <span class="keyword">return</span> $files;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span><br><span class="line"><span class="comment">//var_dump(my_scandir(__DIR__));</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.php</span></span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span> /&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;很开心和你合作~&lt;/title&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> media=<span class="string">"screen"</span> href=<span class="string">"source/prism.css"</span> /&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> media=<span class="string">"screen"</span> href=<span class="string">"source/main.css"</span> /&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include_once</span> <span class="string">'files.php'</span>;</span><br><span class="line">    $filename = $_GET[<span class="string">"filename"</span>];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>($filename))&#123;</span><br><span class="line">        $code = openfile($filename);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $code = <span class="string">"\t#include\n\tint main\n\t&#123;\n\t\t/* code */\n\t\tprintf(\"Hello World!\");\n\t\treturn 0;\n\t&#125;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;div id = <span class="string">"main"</span>&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"文件列表：\n"</span>;</span><br><span class="line">    $dir = my_scandir(<span class="keyword">__DIR__</span>)[toghter];</span><br><span class="line">    $num = count($dir); </span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;$num;++$i)&#123;</span><br><span class="line">        $filename = basename($dir[$i]);</span><br><span class="line">        <span class="keyword">echo</span> (<span class="string">"&lt;button class= \"fb file-button button button-glow button-border button-rounded button-primary\"&gt;"</span>);</span><br><span class="line">        <span class="keyword">echo</span>($filename);</span><br><span class="line">        <span class="keyword">echo</span>(<span class="string">"&lt;/button&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;a class="modalLink" href="#"&gt;添加文件&lt;/a&gt;</span><br><span class="line">&lt;div class="overlay"&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class="modal"&gt;</span><br><span class="line">    &lt;a href="#" class="closeBtn"&gt;取消&lt;/a&gt;</span><br><span class="line">    方便交流使用，请勿提交恶意代码！</span><br><span class="line">&lt;form enctype=<span class="string">"multipart/form-data"</span> action=<span class="string">"postfile.php"</span> method=<span class="string">"post"</span> &gt;</span><br><span class="line">    &lt;input type=<span class="string">"file"</span> name=<span class="string">"file"</span> id=<span class="string">"file"</span>/&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> name=<span class="string">"submit"</span> value=<span class="string">"Submit"</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=<span class="string">"main"</span>&gt;</span><br><span class="line">&lt;pre id = "_code"&gt;&lt;code class="language-C"&gt;&lt;?php echo $code;?&gt;&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script src=<span class="string">"http://code.jquery.com/jquery-latest.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"source/prism.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"source/main.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">'text/javascript'</span> src=<span class="string">'source/jquery.modal.js'</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">'text/javascript'</span> src=<span class="string">'source/site.js'</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//postfile.php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$file = $_FILES[<span class="string">"file"</span>];</span><br><span class="line">$path = dirname(<span class="keyword">__FILE__</span>).<span class="string">"/toghter/"</span>.$file[<span class="string">'name'</span>];</span><br><span class="line"><span class="keyword">if</span>(move_uploaded_file($file[<span class="string">'tmp_name'</span>],$path))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert(\"文件上传成功\")&lt;/script&gt;"</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    $error = $_FILES[<span class="string">'myfile'</span>][<span class="string">'error'</span>];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;script&gt;\"上传错误\""</span>.$error.<span class="string">"&lt;/script&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;script&gt;history.go(-1);&lt;/script&gt;"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">  $myfile = "/private/var/tmp/";</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  if (is_readable ($myfile)) &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件可读。", "\n";</span></span><br><span class="line"><span class="comment">  &#125; else &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件不可读.", "\n";</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">  </span></span><br><span class="line"><span class="comment">  if (is_writable ($myfile)) &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件可写。", "\n";</span></span><br><span class="line"><span class="comment">  &#125; else &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件不可写。", "\n";</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  if (is_executable ($myfile)) &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件可执行!", "\n";</span></span><br><span class="line"><span class="comment">  &#125; else &#123;</span></span><br><span class="line"><span class="comment">    echo "此文件没有可执行权限。", "\n";</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">?&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h5 id="篇幅原因-不再赘述js等文件"><a href="#篇幅原因-不再赘述js等文件" class="headerlink" title="篇幅原因 不再赘述js等文件"></a>篇幅原因 不再赘述js等文件</h5>
+<li><p>上传文件是一个非常危险的行为，尽管如此，我还是没有做任何过滤措施，这是非常危险的行为（时间有限）。</p>
+          
       
-    </div>
+    </li></ul></div>
     
     <div class="article-info article-info-index">
       
@@ -687,6 +603,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/代码共享/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -733,20 +653,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
+              <h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ul>
 <li>从终端接收参数</li>
 <li>格式化json</li>
-<li>输出格式化好的json到目标文件里</li>
-</ul>
-<h4 id="完整代码："><a href="#完整代码：" class="headerlink" title="完整代码："></a>完整代码：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> getopt</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化json</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strtosjson</span><span class="params">(proformatfile)</span>:</span></span><br><span class="line">    js = json.dumps(proformatfile, sort_keys=<span class="keyword">True</span>,indent=<span class="number">4</span>,separators=(<span class="string">','</span>, <span class="string">':'</span>))</span><br><span class="line">    <span class="keyword">return</span> js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出用法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">usage</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Usage: formatjson [-h | --help] | [-i|--ifile] args [-o|--ofile] args"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(argv)</span>:</span></span><br><span class="line">    inputfile=<span class="string">""</span></span><br><span class="line">    outputfile=<span class="string">""</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        opts,arg = getopt.getopt(argv,<span class="string">"hi:o:"</span>,[<span class="string">"ifile="</span>,<span class="string">"ofile="</span>])</span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        getopt.getopt()方法说明：</span></span><br><span class="line"><span class="string">            args:要解析的命令行参数列表</span></span><br><span class="line"><span class="string">            oprtions:字符串的格式 带’:‘表示此选项后必须有附加参数</span></span><br><span class="line"><span class="string">            long_options:列表格式 带'='表示此选项后必须有附加参数</span></span><br><span class="line"><span class="string">            返回值:</span></span><br><span class="line"><span class="string">                - (option,value)</span></span><br><span class="line"><span class="string">                -  参数列表</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">    <span class="keyword">except</span> getopt.GetoptError:</span><br><span class="line">        usage()</span><br><span class="line">        sys.exit(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> opt, arg <span class="keyword">in</span> opts:</span><br><span class="line">        <span class="keyword">if</span> opt == <span class="string">'-h'</span>:</span><br><span class="line">            usage()</span><br><span class="line">            sys.exit()</span><br><span class="line">        <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">"-i"</span>, <span class="string">"--ifile"</span>):</span><br><span class="line">            inputfile = arg</span><br><span class="line">        <span class="keyword">elif</span> opt <span class="keyword">in</span> (<span class="string">"-o"</span>, <span class="string">"--ofile"</span>):</span><br><span class="line">            outputfile = arg</span><br><span class="line">    infilepath = inputfile </span><br><span class="line">    outfilepath = outputfile</span><br><span class="line">    format(infilepath,outfilepath)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读写文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">format</span><span class="params">(infilepath,outfilepath)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(infilepath,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            proformatfile = f.read()</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        print(<span class="string">"No Such file or directory!"</span>)</span><br><span class="line">        usage()</span><br><span class="line">        sys.exit(<span class="number">2</span>)</span><br><span class="line">    js = strtosjson(eval(proformatfile))</span><br><span class="line">    <span class="comment"># eval() 将string转换为dictionary</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(outfilepath,<span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(js)</span><br><span class="line">            print(<span class="string">"json fromat success!"</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        print(<span class="string">"OutPutFileWriteError!"</span>)</span><br><span class="line">        sys.exit(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">   main(sys.argv[<span class="number">1</span>:]) <span class="comment">#除去本身的文件名</span></span><br></pre></td></tr></table></figure>
-<h4 id="测试："><a href="#测试：" class="headerlink" title="测试："></a>测试：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python formatjson.py -i /Users/whoami/Desktop/test.txt -o /Users/whoami/Desktop/t.txt</span></span><br></pre></td></tr></table></figure>
-<p><code>$ json fromat success!</code></p>
-<h4 id="后续改进"><a href="#后续改进" class="headerlink" title="后续改进"></a>后续改进</h4><ul>
-<li>输入输出文件过于繁琐 可以加上默认值</li>
-</ul>
-
+<li>输出格式化好的json到目标文件里
+          
       
-    </div>
+    </li></ul></div>
     
     <div class="article-info article-info-index">
       
@@ -757,6 +670,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/scripts-用python格式化json/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -931,32 +848,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>起因：昨天晚上朋友发了一个消息给我：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju3ybunjj30fd03qwfd.jpg" alt=""></p>
-<p>晚上喝了点酒，没怎么看就睡了。<br>第二天一大早上想起这个问题，心血来潮想扒一扒这个网站</p>
-<p>首先看这个网址：<br><a href="http://maschada.wbac.ac.th/ui.html?index/=ciquitj?url=s9fwpc&amp;iv" target="_blank" rel="noopener">http://maschada.wbac.ac.th/ui.html?index/=ciquitj?url=s9fwpc&amp;iv</a></p>
-<p>打开是一个QQ安全中心的登陆界面：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju49p29kj30fd0bgt9m.jpg" alt=""></p>
-<p>常识：QQ安全中心的网址统一都是 <a href="https://aq.qq.com/" target="_blank" rel="noopener">https://aq.qq.com/</a><br>再加上这么奇怪的网站，第一反应就是盗号网址。chrome查看源代码：一眼看去有几个地方比较可疑：</p>
-<h3 id="1-form的提交"><a href="#1-form的提交" class="headerlink" title="1. form的提交"></a>1. form的提交</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju58eqgaj30fd028t9a.jpg" alt=""></p>
-<h3 id="2-一段被url编码的js"><a href="#2-一段被url编码的js" class="headerlink" title="2. 一段被url编码的js"></a>2. 一段被url编码的js</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju5wcgdpj30fd01nwf3.jpg" alt=""></p>
-<h3 id="3-奇怪的js引用"><a href="#3-奇怪的js引用" class="headerlink" title="3. 奇怪的js引用"></a>3. 奇怪的js引用</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju6o15tvj309j00vjrc.jpg" alt=""></p>
-<pre><code>首先搞懂这个url编码的js：
-</code></pre><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju7igpmhj30fd047js5.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju7s55fcj30fd022aa9.jpg" alt=""><br>这里只是控制了输入框的默认值，问题不大。<br>再来看js引用部分：<br>一个很老套的套路：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;jj.php&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>这里的jj.php并不是php文件，用script引用，所以jj.php是一个js文件！<br>打开：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju959pkmj30fd07swjh.jpg" alt=""><br>格式整理一下。。。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju9h44axj30fd0a5afj.jpg" alt=""><br>前半部分是简单的逻辑，主要判断输入的QQ号和密码是否符合标准。</p>
-<p>关键代码<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzju9prr7dj30fd05n0uo.jpg" alt=""><br>这里就是很明显的套路了：<br>你输入正确的QQ账户和密码后就会跳转到真正的QQ安全中心（这一步如果是输入错误也可能直接登录到QQ安全中心，因为一般QQ或者浏览器都会自动登录，不过这个没关系，不会有安全问题，也算是一个障眼法。）<br>这里注意到一个注释，和和上面的post请求差不多，但是用一个p();<br>所以来看看p()代码：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuabau58j30fd02b0tb.jpg" alt=""><br>s的值用了ecode64()也就是用了base64编码：<br>QQ号 + t + 密码 + t<br>如果我输入了QQ和密码为 ： 88488848t shabisibabat<br>base64 编码：<br>ODg0ODg4NDhcdCBzaGFiaXNpYmFiYVx0==<br><a href="http://maschada.wbac.ac.th//tpl/36402021580636317/ODg0ODg4NDhcdCBzaGFiaXNpYmFiYVx0==.gif_1474950810000" target="_blank" rel="noopener">http://maschada.wbac.ac.th//tpl/36402021580636317/ODg0ODg4NDhcdCBzaGFiaXNpYmFiYVx0==.gif_1474950810000</a></p>
-<p>到此，分析结束。<br>其他信息：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjuak04lcj30fd07mab8.jpg" alt=""><br>总结：</p>
-<p>小白一只，没有社工库，到这里就全部完了，只是简单分析了一下盗号的一般套路，希望各位保护好自己的账号。<br>网络安全常识和意识不只是搞网络安全的才需要具有的素质。<br>现在这种网络环境，这些隐私信息稍不注意就会被人挖走，好好提高自己的安全意识，尽量不做internet裸奔者。</p>
-
+              <p>起因：昨天晚上朋友发了一个消息给我：<br>
+          
       
-    </div>
+    </p></div>
     
     <div class="article-info article-info-index">
       
       
 
       
+      
+        <p class="article-more-link">
+          <a href="/2019/01/26/盗号所启发的/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1021,73 +926,6 @@
         <p class="article-more-link">
           <a href="/2019/01/26/Python-爬虫入门/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Python-微信好友分析" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/26/Python-微信好友分析/" class="article-date">
-      <time datetime="2019-01-26T03:33:49.000Z" itemprop="datePublished">2019-01-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>对微信好友进行了一些简单的统计和分析</p>
-</blockquote>
-<p>在使用pip安装wordcloud包时会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: Microsoft Visual C++ 14.0 is required. Get it with &quot;Microsoft Visual C++ Build Tools&quot;: http://landinghub.visualstudio.com/visual-cpp-build-tools</span><br></pre></td></tr></table></figure></p>
-<p>解决：</p>
-<p>打开<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools" target="_blank" rel="noopener">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>，下载并安装Visual C++ 2015 Build Tools。</p>
-<p>再次使用pip安装即可：<br><code>pip install wordcloud</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span>  pd</span><br><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> Pie,Map,Style,Page,Bar</span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> wordcloud</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">\<span class="comment">#按照key获得相关的list</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get</span>\<span class="title">_attr</span><span class="params">(friends,key)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(map(<span class="keyword">lambda</span> user:user.get(key),friends))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get</span>\<span class="title">_friends</span><span class="params">()</span>:</span></span><br><span class="line">    itchat.auto_login(hotReload=<span class="keyword">True</span>)</span><br><span class="line">    friends = itchat.get_friends()</span><br><span class="line">    users = dict(province=get_attr(friends, <span class="string">"Province"</span>),</span><br><span class="line">                   city=get_attr(friends, <span class="string">"City"</span>),</span><br><span class="line">                   nickname=get_attr(friends, <span class="string">"NickName"</span>),</span><br><span class="line">                   sex=get_attr(friends, <span class="string">"Sex"</span>),</span><br><span class="line">                   signature=get_attr(friends, <span class="string">"Signature"</span>),</span><br><span class="line">                   remarkname=get_attr(friends, <span class="string">"RemarkName"</span>),</span><br><span class="line">                   pyquanpin=get_attr(friends, <span class="string">"PYQuanPin"</span>),</span><br><span class="line">                   displayname=get_attr(friends, <span class="string">"DisplayName"</span>),</span><br><span class="line">                   isowner=get_attr(friends, <span class="string">"IsOwner"</span>))</span><br><span class="line">    <span class="keyword">return</span> users</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sex</span>\<span class="title">_stats</span><span class="params">(users)</span>:</span></span><br><span class="line">    df = pd.DataFrame(users)</span><br><span class="line">    sex_arr = df.groupby([<span class="string">'sex'</span>], as_index=<span class="keyword">True</span>)[<span class="string">'sex'</span>].count()</span><br><span class="line">    data = dict(zip(list(sex_arr.index),list(sex_arr)))</span><br><span class="line">    data[<span class="string">'可能没有性别吧'</span>] = data.pop(<span class="number">0</span>)</span><br><span class="line">    data[<span class="string">'男'</span>] = data.pop(<span class="number">1</span>)</span><br><span class="line">    data[<span class="string">'女'</span>] = data.pop(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> data.keys(),data.values()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span>\<span class="title">_sex</span><span class="params">()</span>:</span></span><br><span class="line">    users = get_friends()</span><br><span class="line">    page = Page()</span><br><span class="line">    \<span class="comment">#style = Style(width = 1100,height = 600)</span></span><br><span class="line">    \<span class="comment">#style\_middle = Style(width = 900,height = 500)</span></span><br><span class="line">    data = sex_stats(users)</span><br><span class="line">    attr,value = data</span><br><span class="line">    chart = Pie(<span class="string">'微信性别'</span>)</span><br><span class="line">    chart.add(<span class="string">''</span>, attr, value, center=[<span class="number">50</span>, <span class="number">50</span>],</span><br><span class="line">                radius=[<span class="number">30</span>, <span class="number">70</span>], is_label_show=<span class="keyword">True</span>, legend_orient=<span class="string">'horizontal'</span>, legend_pos=<span class="string">'center'</span>,</span><br><span class="line">                legend_top=<span class="string">'bottom'</span>, is_area_show=<span class="keyword">True</span>)</span><br><span class="line">    page.add(chart)</span><br><span class="line">    page.render()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prov</span>\<span class="title">_stats</span><span class="params">(users)</span>:</span></span><br><span class="line">    prv = pd.DataFrame(users)</span><br><span class="line">    prv_cnt = prv.groupby(<span class="string">'province'</span>, as_index=<span class="keyword">True</span>)[<span class="string">'province'</span>].count().sort_values()</span><br><span class="line">    attr = list(map(<span class="keyword">lambda</span> x: x <span class="keyword">if</span> x != <span class="string">''</span> <span class="keyword">else</span> <span class="string">'未知'</span>, list(prv_cnt.index)))</span><br><span class="line">    <span class="keyword">return</span> attr, list(prv_cnt)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span>\<span class="title">_city</span><span class="params">()</span>:</span></span><br><span class="line">    users = get_friends()</span><br><span class="line">    data = prov_stats(users)</span><br><span class="line">    attr, value = data</span><br><span class="line">    page = Page()</span><br><span class="line">    style = Style(width = <span class="number">1100</span>,height = <span class="number">600</span>)</span><br><span class="line">    style_middle = Style(width = <span class="number">900</span>,height = <span class="number">500</span>)</span><br><span class="line">    chart = Map(<span class="string">'中国地图'</span>, **style.init_style)</span><br><span class="line">    chart.add(<span class="string">''</span>, attr, value, is_label_show=<span class="keyword">True</span>, is_visualmap=<span class="keyword">True</span>, visual_text_color=<span class="string">'\#000'</span>)</span><br><span class="line">    page.add(chart)</span><br><span class="line"></span><br><span class="line">    chart = Bar(<span class="string">'柱状图'</span>, **style_middle.init_style)</span><br><span class="line">    chart.add(<span class="string">''</span>, attr, value, is_stack=<span class="keyword">True</span>, is_convert=<span class="keyword">True</span>, label_pos=<span class="string">'inside'</span>, is_legend_show=<span class="keyword">True</span>,</span><br><span class="line">            is_label_show=<span class="keyword">True</span>)</span><br><span class="line">    page.add(chart)</span><br><span class="line">    page.render()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jieba</span>\<span class="title">_cut</span><span class="params">(users)</span>:</span></span><br><span class="line">    signature = users[<span class="string">'signature'</span>]</span><br><span class="line">    words = <span class="string">''</span>.join(signature)</span><br><span class="line">    res_list = jieba.cut(words,cut_all = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> res_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span>\<span class="title">_wc</span><span class="params">(words\_list)</span>:</span></span><br><span class="line">    res_path = os.path.abspath(<span class="string">'./resource'</span>)</span><br><span class="line">    words = <span class="string">' '</span>.join(word_list)</span><br><span class="line"></span><br><span class="line">    back_pic = numpy.array(Image.open(<span class="string">"%s/wc.png"</span> % res_path))</span><br><span class="line"></span><br><span class="line">    stopwords = set(SETWORDS)</span><br><span class="line">    stopwords = stopwords.union(set([<span class="string">'class'</span>,<span class="string">'span'</span>,<span class="string">'emoji'</span>,<span class="string">'emoji'</span>,<span class="string">'emoji1f388'</span>,<span class="string">'emoji1f604'</span>]))</span><br><span class="line"></span><br><span class="line">    wc = WordCloud(background_color=<span class="string">"white"</span>, margin=<span class="number">0</span>,</span><br><span class="line">                     font_path=<span class="string">'%s/hanyiqihei.ttf'</span> % res_path,</span><br><span class="line">                     mask=back_pic,</span><br><span class="line">                     max_font_size=<span class="number">70</span>,</span><br><span class="line">                     stopwords=stopwords</span><br><span class="line">                     ).generate(words)</span><br><span class="line"></span><br><span class="line">    plt.imshow(wc)</span><br><span class="line"></span><br><span class="line">    plt.imshow(wc.recolor(color_func = image_colors))</span><br><span class="line"></span><br><span class="line">    plt.axis(<span class="string">'off'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    \<span class="comment">#create\_sex()</span></span><br><span class="line">    \<span class="comment">#create\_city()</span></span><br><span class="line">    create_wc()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'\_\_main\_\_'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
@@ -1198,7 +1036,7 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-            
+             title: "a.article-title, .article-more-link a", 
             
             
             

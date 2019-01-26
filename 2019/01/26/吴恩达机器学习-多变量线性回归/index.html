@@ -15,13 +15,13 @@
 
 
 
-<meta name="description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta name="description" content="多特征值表示方法">
 <meta name="keywords" content="机器学习,多变量线性回归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="吴恩达机器学习-多变量线性回归">
 <meta property="og:url" content="http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/index.html">
 <meta property="og:site_name" content="Always Be a Student">
-<meta property="og:description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta property="og:description" content="多特征值表示方法">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg">
@@ -55,10 +55,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg">
-<meta property="og:updated_time" content="2019-01-26T05:03:23.227Z">
+<meta property="og:updated_time" content="2019-01-26T06:20:13.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="吴恩达机器学习-多变量线性回归">
-<meta name="twitter:description" content="多特征值表示方法  n 特征值的数目 m 表示训练集样本数 x_1,x_2…x_n 表示n个特征值 y 输出变量。   表示第i个特征向量，他是一个n维度向量。  第i个向量的第j个特征值 eg:    假设形式 例某房子的价格 = 基本价格80k+x1平方米0.1k+有x2层0.01k+有x3卧室3k-使用年数2k 等价形式为了方便表示，我们增加一个x0，定义为1，假设此时变成了: 这就是多元线">
+<meta name="twitter:description" content="多特征值表示方法">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -145,7 +145,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -239,7 +239,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS-X/">OS X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
                     </div>
                 </section>
                 
@@ -368,15 +368,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg" alt=""></p>
+        <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><a id="more"></a>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg" alt=""></p>
 <ul>
 <li>n <em>特征值的数目</em></li>
 <li>m <em>表示训练集样本数</em></li>
 <li>x_1,x_2…x_n <em>表示n个特征值</em></li>
-<li><p>y <em>输出变量</em>。</p>
-</li>
-<li><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg" alt=""> 表示第i个特征向量，他是一个<strong><strong>n</strong></strong>维度向量。</p>
-</li>
+<li>y <em>输出变量</em>。</li>
+</ul>
+<ul>
+<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg" alt=""> 表示第i个特征向量，他是一个<strong><strong>n</strong></strong>维度向量。</li>
 <li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg" alt="">第i个向量的第j个特征值<blockquote>
 <p>eg:<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg" alt=""></p>
 </blockquote>
@@ -463,7 +464,7 @@
         <p><span>本文标题:</span><a href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
         <p><span>发布时间:</span>2019-01-26, 12:41:52</p>
-        <p><span>最后更新:</span>2019-01-26, 13:03:23</p>
+        <p><span>最后更新:</span>2019-01-26, 14:20:13</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/26/吴恩达机器学习-多变量线性回归/" title="吴恩达机器学习-多变量线性回归">http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -477,6 +478,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">
+                    linux/osx-把rm命令改为废纸篓
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -543,13 +550,37 @@
 
 
     
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/';
+            this.page.identifier = '2019/01/26/吴恩达机器学习-多变量线性回归/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
 
 
 
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" title="上一篇: linux/osx-把rm命令改为废纸篓">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -561,7 +592,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-单变量线性回归/">吴恩达机器学习-单变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-绪论/">吴恩达机器学习-绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/代码共享/">代码共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/scripts-用python格式化json/">scripts - 用python格式化json</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建git服务器/">搭建git服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建wordpress个人博客/">搭建wordpress个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/盗号所启发的/">盗号所启发的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-爬虫入门/">Python-爬虫入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-鸡汤/">Python-鸡汤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-聊天机器人/">Python-聊天机器人</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/机器学习实战-kNN/">机器学习实战-kNN</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-FCFS/">Python-FCFS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP分页/">PHP分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Samba服务器/">搭建Samba服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DHCP服务器/">搭建DHCP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Seafile网盘/">搭建Seafile网盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建LAMP环境/">搭建LAMP环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DNS服务器/">搭建DNS服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建NFS系统/">搭建NFS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/自制一个屏蔽百度广告的chrom插件/">自制一个屏蔽百度广告的chrom插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/一次上岸/">一次上岸</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">linux/osx-把rm命令改为废纸篓</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-单变量线性回归/">吴恩达机器学习-单变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-绪论/">吴恩达机器学习-绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/代码共享/">代码共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/scripts-用python格式化json/">scripts - 用python格式化json</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建git服务器/">搭建git服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建wordpress个人博客/">搭建wordpress个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/盗号所启发的/">盗号所启发的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-爬虫入门/">Python-爬虫入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-鸡汤/">Python-鸡汤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-聊天机器人/">Python-聊天机器人</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/机器学习实战-kNN/">机器学习实战-kNN</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-FCFS/">Python-FCFS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP分页/">PHP分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Samba服务器/">搭建Samba服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DHCP服务器/">搭建DHCP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Seafile网盘/">搭建Seafile网盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建LAMP环境/">搭建LAMP环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DNS服务器/">搭建DNS服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建NFS系统/">搭建NFS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/自制一个屏蔽百度广告的chrom插件/">自制一个屏蔽百度广告的chrom插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/一次上岸/">一次上岸</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/hello-world/">Hello World</a></li></ul>
 
 
 
@@ -657,7 +688,7 @@ MathJax.Hub.Queue(function() {
     
         var oOpenInNew = {
             
-            
+             title: "a.article-title, .article-more-link a", 
             
             
             
