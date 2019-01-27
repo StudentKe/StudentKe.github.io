@@ -15,51 +15,18 @@
 
 
 
-<meta name="description" content="多特征值表示方法">
-<meta name="keywords" content="机器学习,多变量线性回归">
+<meta name="description" content="打算入门IOS开发，在ReactNative，Swift和Objective-C之间抉择之后，选用OC作为开发的工具。把学习笔记整理发布，以便随时复习。">
+<meta name="keywords" content="Objective-C,IOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="吴恩达机器学习-多变量线性回归">
-<meta property="og:url" content="http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/index.html">
+<meta property="og:title" content="IOS&#x2F;Objective-C开发学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记（一）/index.html">
 <meta property="og:site_name" content="Always Be a Student">
-<meta property="og:description" content="多特征值表示方法">
+<meta property="og:description" content="打算入门IOS开发，在ReactNative，Swift和Objective-C之间抉择之后，选用OC作为开发的工具。把学习笔记整理发布，以便随时复习。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoux62j30wc06kaaf.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp3qpsj31640a8q4e.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp9n1lj30rm0fk404.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2rfbj30x209w3zb.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp7i9gj31h00sy782.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvcvj30l40bamy4.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0c67j30lk0kc413.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvoij30mm0kkabq.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp5oczj318m0nwtb6.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0llrj30f609c0sy.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp8r6jj30pm0bk3zr.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpei8nj315m0f0jua.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpa2lgj30sy0ia0um.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp6fz8j30z20i6abv.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbh0ij30yq07s754.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpakngj312i0jswgy.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp79kqj316i0j8tay.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcxikj312w0jsgnc.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp11iej319y0ocn0p.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcla4j31ag0pgn1p.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxov5xpj30gw02edg4.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbpowj304w01o3yh.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2v69j302k01s747.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp81m2j304c02amx3.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoy20aj306a01uaa2.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg">
-<meta property="og:updated_time" content="2019-01-26T06:20:13.755Z">
+<meta property="og:updated_time" content="2019-01-27T16:06:07.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴恩达机器学习-多变量线性回归">
-<meta name="twitter:description" content="多特征值表示方法">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg">
+<meta name="twitter:title" content="IOS&#x2F;Objective-C开发学习笔记（一）">
+<meta name="twitter:description" content="打算入门IOS开发，在ReactNative，Swift和Objective-C之间抉择之后，选用OC作为开发的工具。把学习笔记整理发布，以便随时复习。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -91,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>吴恩达机器学习-多变量线性回归 | Always Be a Student</title>
+<title>IOS/Objective-C开发学习笔记（一） | Always Be a Student</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -332,11 +299,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-吴恩达机器学习-多变量线性回归" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-IOS-Objective-C开发学习笔记（一）" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/26/吴恩达机器学习-多变量线性回归/" class="article-date">
-      <time datetime="2019-01-26T04:41:52.000Z" itemprop="datePublished">2019-01-26</time>
+      <a href="/2019/01/28/IOS-Objective-C开发学习笔记（一）/" class="article-date">
+      <time datetime="2019-01-27T16:05:00.000Z" itemprop="datePublished">2019-01-28</time>
 </a>
 
 
@@ -351,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      吴恩达机器学习-多变量线性回归
+      IOS/Objective-C开发学习笔记（一）
     </h1>
   
 
@@ -362,7 +329,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/">IOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -372,90 +339,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="多特征值"><a href="#多特征值" class="headerlink" title="多特征值"></a>多特征值</h2><h3 id="表示方法"><a href="#表示方法" class="headerlink" title="表示方法"></a>表示方法</h3><a id="more"></a>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpaf3fj30u60hkmzf.jpg" alt=""></p>
+        <p>打算入门IOS开发，在ReactNative，Swift和Objective-C之间抉择之后，选用OC作为开发的工具。把学习笔记整理发布，以便随时复习。<br><a id="more"></a></p>
+<h2 id="OC-Hello-World"><a href="#OC-Hello-World" class="headerlink" title="OC Hello World"></a>OC Hello World</h2><blockquote>
+<p>一个OC的程序基本有以下部分</p>
 <ul>
-<li>n <em>特征值的数目</em></li>
-<li>m <em>表示训练集样本数</em></li>
-<li>x_1,x_2…x_n <em>表示n个特征值</em></li>
-<li>y <em>输出变量</em>。</li>
+<li>预处理</li>
+<li>接口</li>
+<li>实现</li>
+<li>方法</li>
+<li>变量</li>
+<li>表达式</li>
+<li>注释</li>
 </ul>
-<ul>
-<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0zttj302a01kq2t.jpg" alt=""> 表示第i个特征向量，他是一个<strong><strong>n</strong></strong>维度向量。</li>
-<li><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoxmfbj302402a746.jpg" alt="">第i个向量的第j个特征值<blockquote>
-<p>eg:<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoutsvj30d009k3yw.jpg" alt=""></p>
 </blockquote>
-</li>
-</ul>
-<h3 id="假设形式"><a href="#假设形式" class="headerlink" title="假设形式"></a>假设形式</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoux62j30wc06kaaf.jpg" alt=""></p>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp3qpsj31640a8q4e.jpg" alt=""><br>某房子的价格 = 基本价格80k+x1平方米<em>0.1k+有x2层</em>0.01k+有x3卧室<em>3k-使用年数</em>2k</p>
-<h4 id="等价形式"><a href="#等价形式" class="headerlink" title="等价形式"></a>等价形式</h4><p>为了方便表示，我们增加一个x0，定义为1，假设此时变成了:</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp9n1lj30rm0fk404.jpg" alt=""><br>这就是多元线性回归。</p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><ul>
-<li>这里不把θ(0-n)看做是n+1个独立的变量，而是考虑看做n+1维的θ向量。</li>
-<li>梯度下降<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2rfbj30x209w3zb.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp7i9gj31h00sy782.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvcvj30l40bamy4.jpg" alt=""></li>
-</ul>
-<h2 id="多元梯度下降算法演练"><a href="#多元梯度下降算法演练" class="headerlink" title="多元梯度下降算法演练"></a>多元梯度下降算法演练</h2><h3 id="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"><a href="#特征缩放（不需要过于精确，目的只是让梯度下降更快一些）" class="headerlink" title="特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"></a>特征缩放（不需要过于精确，目的只是让梯度下降更快一些）</h3><ul>
-<li>当特征值的取值范围相差过多时，代价函数的等值曲线会非常的扁，会导致梯度下降非常慢。</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0c67j30lk0kc413.jpg" alt=""></p>
+<hr>
+<p>OC的简单代码示例（由XCode自动生成）：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        <span class="comment">// insert code here...</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Hello, World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>控制台输出:<br><code>2019-01-27 23:27:13.818927+0800 OCStudy[1444:3995540] Hello, World!</code></p>
+<p>现在稍微加一点东西：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">myClass</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)myFunction;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">myClass</span></span></span><br><span class="line">- (<span class="keyword">void</span>)myFunction&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"hello world!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        myClass *_myClass = [[myClass alloc] init];</span><br><span class="line">        [_myClass myFunction];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印输出仍然是：</p>
+<p><code>2019-01-27 23:27:13.818927+0800 OCStudy[1444:3995540] Hello, World!</code></p>
+<p>关于程序的几个解释：</p>
 <ul>
-<li><p>此时需要对特征值进行放缩处理，使得特征值的取值范围更加接近。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxovvoij30mm0kkabq.jpg" alt=""></p>
-</li>
-<li><p>一般的，尽量让特征值的取值范围都在(-1,1)之间。（如果不在，但区间接近，问题也不是很大。只要不是过分的大或过分的小。）</p>
-</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp5oczj318m0nwtb6.jpg" alt=""></p>
-<p>这些都是可以接受的范围</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp0llrj30f609c0sy.jpg" alt=""></p>
-<ul>
-<li>除了除以取值范围之外，我们还可以进行均值归一化处理。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp8r6jj30pm0bk3zr.jpg" alt=""></li>
-<li>具体做法：减去平均值再除以取值范围<ul>
-<li>例子：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpei8nj315m0f0jua.jpg" alt=""></li>
-</ul>
-</li>
-</ul>
-<h3 id="学习率α"><a href="#学习率α" class="headerlink" title="学习率α"></a>学习率α</h3><ul>
-<li>我们可以画出J关于迭代次数的函数图像，如果梯度下降算法正常进行，那么每次迭代之后的J的值都应该变小。如果在某一段区间内，函数的图像已经变得非常平缓了，那么说明此时梯度下降算法差不多已经收敛了。<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpa2lgj30sy0ia0um.jpg" alt=""></li>
-<li><p>这样的函数曲线也可以帮助我们判断梯度下降算法是否正常工作，比如，学习率α过大时：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp6fz8j30z20i6abv.jpg" alt=""></p>
-</li>
-<li><p>尝试一系列的α：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbh0ij30yq07s754.jpg" alt=""></p>
-</li>
-</ul>
-<h3 id="可供选择的特征以及如何得到不同的学习算法以及多特征回归"><a href="#可供选择的特征以及如何得到不同的学习算法以及多特征回归" class="headerlink" title="可供选择的特征以及如何得到不同的学习算法以及多特征回归"></a>可供选择的特征以及如何得到不同的学习算法以及多特征回归</h3><ul>
-<li>同一个问题可以有多种特征的选择方法<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpakngj312i0jswgy.jpg" alt=""></li>
-</ul>
-<h4 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h4><ul>
-<li>如何更好的拟合<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp79kqj316i0j8tay.jpg" alt=""></li>
-</ul>
-<p><strong><strong>如果采取上面的方法，那么放缩法就显得尤为重要！</strong></strong></p>
-<ul>
-<li>选取特征的方法有很多<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcxikj312w0jsgnc.jpg" alt=""></li>
-</ul>
-<h4 id="正规方程（不需要放缩）"><a href="#正规方程（不需要放缩）" class="headerlink" title="正规方程（不需要放缩）"></a>正规方程（不需要放缩）</h4><blockquote>
-<p>对于某些线性回归问题，有更好的方法来求得参数θ的最优值。</p>
-</blockquote>
-<p>正规方程区别于迭代的方法求得最优θ，它可以一步求得最优的θ。</p>
-<p>引例：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp11iej319y0ocn0p.jpg" alt=""></p>
-<p>实际上，我们不对向量θ中每一个都求偏导，这样的话过于冗杂。而是用一种等价的方法。</p>
-<ul>
-<li>如何实现正规方程法？<br>给定一个训练集，我们加一列x0 = (1,1,1,…1) 然后构建矩阵X和向量y。使得代价函数最小的θ即可求出。</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpcla4j31ag0pgn1p.jpg" alt=""></p>
-<blockquote>
-<p>证明：<br>设假设函<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxov5xpj30gw02edg4.jpg" alt=""><br>即<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxpbpowj304w01o3yh.jpg" alt=""></p>
-</blockquote>
-<p>在拟合成功时，输出函数y约等于<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp2v69j302k01s747.jpg" alt=""></p>
-<p>故<img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp81m2j304c02amx3.jpg" alt=""><br>在X为方阵的时候，才可逆，即就是：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxoy20aj306a01uaa2.jpg" alt=""></p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp1wgkj308k02874c.jpg" alt=""></p>
-<ul>
-<li>X (设计矩阵)<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp722cj319y0nytcp.jpg" alt=""></li>
-</ul>
-<h4 id="何时使用正规方程和梯度下降？"><a href="#何时使用正规方程和梯度下降？" class="headerlink" title="何时使用正规方程和梯度下降？"></a>何时使用正规方程和梯度下降？</h4><p>梯度下降和正规方程的优缺点对比：<br>只要特征的数量不是很大 (&lt;10000)都可以采用正规方程法</p>
-<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1fzjvxp4u4rj31e20nqtdn.jpg" alt=""></p>
-<h4 id="正规方程不可逆情况下的解决办法"><a href="#正规方程不可逆情况下的解决办法" class="headerlink" title="正规方程不可逆情况下的解决办法"></a>正规方程不可逆情况下的解决办法</h4><ul>
-<li>检查是否有多余（线性相关）特征（线代知识）</li>
-<li>如果特征过多的话，试着删除一些特征(不影响的情况下)，或者正则化（later）。 </li>
+<li><code>#import &lt;Foundation/Foundation.h&gt;</code>是一个预处理命令，它告诉<code>Objective-C</code>语言编译器去实际编译之前包含<code>Foundation.h</code>文件</li>
+<li><code>@interface myClass:NSObject</code> 显示了如何创建一个类。它继<code>承NSObject</code>，这是所有对象的基类。</li>
+<li><code>- (void)myFunction</code>声明一个方法。</li>
+<li><code>@end</code>实现结束</li>
+<li><code>NSLog();</code>在控制台打印信息。</li>
+<li><code>myClass *_myClass = [[myClass alloc] init];</code>实例化<code>myClass</code>类，获得一个<code>_myClass</code>对象,<strong><strong>注意:这里不能写作：<code>myClass *myClass = [[myClass alloc] init];</code></strong></strong></li>
+<li><code>[_myClass myFunction]</code>调用<code>_myClass</code> 对象的<code>myFunction</code>方法。</li>
 </ul>
 
       
@@ -465,13 +376,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></p>
+        <p><span>本文标题:</span><a href="/2019/01/28/IOS-Objective-C开发学习笔记（一）/">IOS/Objective-C开发学习笔记（一）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
-        <p><span>发布时间:</span>2019-01-26, 12:41:52</p>
-        <p><span>最后更新:</span>2019-01-26, 14:20:13</p>
+        <p><span>发布时间:</span>2019-01-28, 00:05:00</p>
+        <p><span>最后更新:</span>2019-01-28, 00:06:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/01/26/吴恩达机器学习-多变量线性回归/" title="吴恩达机器学习-多变量线性回归">http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/28/IOS-Objective-C开发学习笔记（一）/" title="IOS/Objective-C开发学习笔记（一）">http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记（一）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记（一）/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -483,16 +394,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">
-                    linux/osx-把rm命令改为废纸篓
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/01/26/吴恩达机器学习-单变量线性回归/">
-                    吴恩达机器学习-单变量线性回归
+                <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">
+                    linux/osx-把rm命令改为废纸篓
                 </a>
             </div>
         
@@ -504,7 +409,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多特征值"><span class="toc-number">1.</span> <span class="toc-text">多特征值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表示方法"><span class="toc-number">1.1.</span> <span class="toc-text">表示方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设形式"><span class="toc-number">1.2.</span> <span class="toc-text">假设形式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例"><span class="toc-number">1.2.1.</span> <span class="toc-text">例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#等价形式"><span class="toc-number">1.2.2.</span> <span class="toc-text">等价形式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降"><span class="toc-number">2.</span> <span class="toc-text">梯度下降</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多元梯度下降算法演练"><span class="toc-number">3.</span> <span class="toc-text">多元梯度下降算法演练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特征缩放（不需要过于精确，目的只是让梯度下降更快一些）"><span class="toc-number">3.1.</span> <span class="toc-text">特征缩放（不需要过于精确，目的只是让梯度下降更快一些）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习率α"><span class="toc-number">3.2.</span> <span class="toc-text">学习率α</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可供选择的特征以及如何得到不同的学习算法以及多特征回归"><span class="toc-number">3.3.</span> <span class="toc-text">可供选择的特征以及如何得到不同的学习算法以及多特征回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多项式回归"><span class="toc-number">3.3.1.</span> <span class="toc-text">多项式回归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正规方程（不需要放缩）"><span class="toc-number">3.3.2.</span> <span class="toc-text">正规方程（不需要放缩）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#何时使用正规方程和梯度下降？"><span class="toc-number">3.3.3.</span> <span class="toc-text">何时使用正规方程和梯度下降？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正规方程不可逆情况下的解决办法"><span class="toc-number">3.3.4.</span> <span class="toc-text">正规方程不可逆情况下的解决办法</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OC-Hello-World"><span class="toc-number">1.</span> <span class="toc-text">OC Hello World</span></a></li></ol>
         
     </div>
     <style>
@@ -540,7 +445,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"吴恩达机器学习-多变量线性回归　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"IOS/Objective-C开发学习笔记（一）　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -559,8 +464,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2019/01/26/吴恩达机器学习-多变量线性回归/';
-            this.page.identifier = '2019/01/26/吴恩达机器学习-多变量线性回归/';
+            this.page.url = 'http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记（一）/';
+            this.page.identifier = '2019/01/28/IOS-Objective-C开发学习笔记（一）/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -582,15 +487,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" title="上一篇: linux/osx-把rm命令改为废纸篓">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/01/26/吴恩达机器学习-单变量线性回归/" title="下一篇: 吴恩达机器学习-单变量线性回归">
+            <a href="/2019/01/26/linux-osx-把rm命令改为废纸篓/" title="下一篇: linux/osx-把rm命令改为废纸篓">
                 <i class="fa fa-angle-right"></i>
             </a>
         
