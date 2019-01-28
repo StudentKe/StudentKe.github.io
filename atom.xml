@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-27T16:06:07.848Z</updated>
+  <updated>2019-01-28T07:28:08.138Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IOS-Objective-C开发学习笔记(二)</title>
+    <link href="http://yoursite.com/2019/01/28/IOS-Objective-C%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C/"/>
+    <id>http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记-二/</id>
+    <published>2019-01-28T07:26:58.000Z</published>
+    <updated>2019-01-28T07:28:08.138Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于<code>OC-Block</code>的定义和基本用法</p><h2 id="什么是Block？"><a href="#什么是Block？" class="headerlink" title="什么是Block？"></a>什么是<code>Block</code>？</h2><blockquote><p><code>Block</code> - 块 ；它本身封装了一段代码，并将这段代码当做变量，通过 blockname()的方法，进行回调。和c语言中的，函数指针有着异曲同工之妙。</p></blockquote><a id="more"></a><h2 id="Block的基本用法"><a href="#Block的基本用法" class="headerlink" title="Block的基本用法"></a><code>Block</code>的基本用法</h2><ul><li>C语言中的函数指针：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int function()</span><br><span class="line">&#123;</span><br><span class="line">  /* CODE */</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int (*pIntfunction)(void);</span><br><span class="line"></span><br><span class="line">*pIntfunction = function;</span><br></pre></td></tr></table></figure></li></ul><p>上面的<code>function()</code>函数可以直接通过<code>(*pIntfunction)()</code>来调用。<br>这个思路和OC中，块的思路差不多，但有以下区别</p><ul><li>块是内联的，效率高于函数</li><li>块对外部变量默认是是只读的</li><li>块被OC当做对象处理</li></ul><p>下面是OC块的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        int (^myBlock)(int,int) = ^(int firstValue,int secondValue) &#123;</span><br><span class="line">            return firstValue|secondValue;</span><br><span class="line">        &#125;;</span><br><span class="line">        int myBlockReturn = myBlock(1001,1110);</span><br><span class="line">        NSLog(@&quot;myBlockReturn = %d&quot;,myBlockReturn);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="块的写法和调用"><a href="#块的写法和调用" class="headerlink" title="块的写法和调用"></a>块的写法和调用</h3><p>在xcode里面，可以输入<code>inlineBlock</code>获取<code>Block</code>的基本写法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">returnType(^blockName)(parameterTypes) = ^(parameters) &#123;</span><br><span class="line">            statements</span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure><p>调用: <code>blockName();</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于&lt;code&gt;OC-Block&lt;/code&gt;的定义和基本用法&lt;/p&gt;
+&lt;h2 id=&quot;什么是Block？&quot;&gt;&lt;a href=&quot;#什么是Block？&quot; class=&quot;headerlink&quot; title=&quot;什么是Block？&quot;&gt;&lt;/a&gt;什么是&lt;code&gt;Block&lt;/code&gt;？&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Block&lt;/code&gt; - 块 ；它本身封装了一段代码，并将这段代码当做变量，通过 blockname()的方法，进行回调。和c语言中的，函数指针有着异曲同工之妙。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="IOS" scheme="http://yoursite.com/tags/IOS/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
+    
+  </entry>
   
   <entry>
     <title>IOS/Objective-C开发学习笔记（一）</title>
@@ -32,9 +57,9 @@
     </summary>
     
     
-      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
-    
       <category term="IOS" scheme="http://yoursite.com/tags/IOS/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
     
   </entry>
   
@@ -420,28 +445,6 @@
     <summary type="html">
     
       环境为CentOS
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="CentOS" scheme="http://yoursite.com/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建DHCP服务器</title>
-    <link href="http://yoursite.com/2019/01/26/%E6%90%AD%E5%BB%BADHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://yoursite.com/2019/01/26/搭建DHCP服务器/</id>
-    <published>2019-01-26T03:14:43.000Z</published>
-    <updated>2019-01-26T06:22:10.482Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>yum install dhcp</code><br><a id="more"></a></p><h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><blockquote><p>首先拷贝配置文件到<code>/etc/dhcp/dhcpd.conf</code>目录下，注意，新版默认目录<code>/etc/dhcp/dhcpd.conf</code>旧版是<code>/etc/dhcpd.conf</code><br>注意DNS后缀名是在<code>option domain-nam</code>e里配置，这个跟KMS自动激活关系很大<br>如果不配置默认后缀l<code>ocaldomain</code></p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf \#新版的这里改路径了注意</span><br><span class="line">vi /etc/dhcp/dhcpd.conf</span><br></pre></td></tr></table></figure><p>DHCP服务器IP配置成<code>192.168.16.128</code><br>写入如下文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">subnet 192.168.16.128 netmask 255.255.255.0 &#123;</span><br><span class="line">  range 192.168.16.1 192.168.16.254;</span><br><span class="line">  option domain-name-servers ns.testlan.com;</span><br><span class="line">  option domain-name &quot;testlan.com&quot;;</span><br><span class="line">  option routers 192.168.16.128;</span><br><span class="line">  option broadcast-address 192.168.16.128;</span><br><span class="line">  default-lease-time 600;</span><br><span class="line">  max-lease-time 7200;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">host dhcpserver &#123;</span><br><span class="line">  hardware ethernet 00:0C:29:54:FF:37;</span><br><span class="line">  fixed-address 192.168.16.128;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="启动DHCP"><a href="#启动DHCP" class="headerlink" title="启动DHCP"></a>启动DHCP</h3><p><code>service dhcpd restart</code></p>]]></content>
-    
-    <summary type="html">
-    
-      环境是CentOS
     
     </summary>
     
