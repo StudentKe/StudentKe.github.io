@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="主要讲述了PHP实现的用户注册登录等，是非常基础的内容">
-<meta name="keywords" content="PHP">
+<meta name="description" content="类和对象，如何设计，如何实现等以及蛋疼（优雅的）的OC函数命名规则 面向对象基础 对象和类 面向对象三大特性 封装（隐藏具体的实现逻辑 对外公开接口）  继承 （OC只有单继承） 多态（一个方法可以有多种实现）   面向对象思维 确定要解决的问题 根据问题确定对象 用类来描述 转换成类代码什么是对象   对象是对客观事物的抽象 客观实体 类是对对象的抽象 类用来描述对象 是一系列方法和属性的集合">
+<meta name="keywords" content="IOS,Objective-C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP用户注册接口">
-<meta property="og:url" content="http://yoursite.com/2019/01/26/PHP用户注册接口/index.html">
+<meta property="og:title" content="IOS-Objective-C开发学习笔记-三">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记-三/index.html">
 <meta property="og:site_name" content="Always Be a Student">
-<meta property="og:description" content="主要讲述了PHP实现的用户注册登录等，是非常基础的内容">
+<meta property="og:description" content="类和对象，如何设计，如何实现等以及蛋疼（优雅的）的OC函数命名规则 面向对象基础 对象和类 面向对象三大特性 封装（隐藏具体的实现逻辑 对外公开接口）  继承 （OC只有单继承） 多态（一个方法可以有多种实现）   面向对象思维 确定要解决的问题 根据问题确定对象 用类来描述 转换成类代码什么是对象   对象是对客观事物的抽象 客观实体 类是对对象的抽象 类用来描述对象 是一系列方法和属性的集合">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-26T06:21:21.042Z">
+<meta property="og:updated_time" content="2019-01-28T13:57:23.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP用户注册接口">
-<meta name="twitter:description" content="主要讲述了PHP实现的用户注册登录等，是非常基础的内容">
+<meta name="twitter:title" content="IOS-Objective-C开发学习笔记-三">
+<meta name="twitter:description" content="类和对象，如何设计，如何实现等以及蛋疼（优雅的）的OC函数命名规则 面向对象基础 对象和类 面向对象三大特性 封装（隐藏具体的实现逻辑 对外公开接口）  继承 （OC只有单继承） 多态（一个方法可以有多种实现）   面向对象思维 确定要解决的问题 根据问题确定对象 用类来描述 转换成类代码什么是对象   对象是对客观事物的抽象 客观实体 类是对对象的抽象 类用来描述对象 是一系列方法和属性的集合">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>PHP用户注册接口 | Always Be a Student</title>
+<title>IOS-Objective-C开发学习笔记-三 | Always Be a Student</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -299,11 +299,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-PHP用户注册接口" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-IOS-Objective-C开发学习笔记-三" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/26/PHP用户注册接口/" class="article-date">
-      <time datetime="2019-01-26T03:19:56.000Z" itemprop="datePublished">2019-01-26</time>
+      <a href="/2019/01/28/IOS-Objective-C开发学习笔记-三/" class="article-date">
+      <time datetime="2019-01-28T13:53:56.000Z" itemprop="datePublished">2019-01-28</time>
 </a>
 
 
@@ -318,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      PHP用户注册接口
+      IOS-Objective-C开发学习笔记-三
     </h1>
   
 
@@ -329,7 +329,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS/">IOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -339,11 +339,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>新版本的PHP中mysql_conntent()【regcheck.php】等函数改成了mysqli_conntent()【logincheck.php】，参数也有所变化。但不影响正常使用。出现警告时用函数<code>error_reporting(0)</code>隐藏警告<br><a id="more"></a></p>
-<h4 id="登录-login-php"><a href="#登录-login-php" class="headerlink" title="登录-login.php"></a>登录-login.php</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"logincheck.php"</span> method=<span class="string">"post"</span>&gt;    </span><br><span class="line"> 用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span> /&gt;    </span><br><span class="line"> &lt;br /&gt;    </span><br><span class="line"> 密码：&lt;input type=<span class="string">"password"</span> name=<span class="string">"password"</span> /&gt;    </span><br><span class="line"> &lt;br /&gt;    </span><br><span class="line"> &lt;input type=<span class="string">"Submit"</span> name=<span class="string">"Submit"</span> value=<span class="string">"登陆"</span> /&gt;    </span><br><span class="line"></span><br><span class="line"> &lt;a href=<span class="string">"register.php"</span>&gt;注册&lt;/a&gt;    </span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="登录检测-logcheck-php："><a href="#登录检测-logcheck-php：" class="headerlink" title="登录检测-logcheck.php："></a>登录检测-logcheck.php：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">"Submit"</span>]) &amp;&amp; $_POST[<span class="string">"Submit"</span>] == <span class="string">"登陆"</span>)  </span><br><span class="line">        &#123;  </span><br><span class="line">            $user = $_POST[<span class="string">"username"</span>];  </span><br><span class="line">            $psw = $_POST[<span class="string">"password"</span>];  </span><br><span class="line">            <span class="keyword">if</span>($user == <span class="string">""</span> || $psw == <span class="string">""</span>)  </span><br><span class="line">            &#123;  </span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('请输入用户名或密码！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">else</span>  </span><br><span class="line">            &#123;  </span><br><span class="line">                $con = mysqli_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);  </span><br><span class="line">                mysqli_select_db($con ,<span class="string">"vt"</span>);  </span><br><span class="line">                mysqli_query($con,<span class="string">"set names 'gbk'"</span>);  </span><br><span class="line">                $sql = <span class="string">"select username,password from user where username = '$_POST[username]' and password = '$_POST[password]'"</span>;  </span><br><span class="line">                $result = mysqli_query($con ,$sql);  </span><br><span class="line">                $num = mysqli_num_rows($result);  </span><br><span class="line">                <span class="keyword">if</span>($num)  </span><br><span class="line">                &#123;  </span><br><span class="line">                    $row = mysqli_fetch_array($result,MYSQLI_NUM);  <span class="comment">//将数据以索引方式储存在数组中  </span></span><br><span class="line">                    <span class="keyword">echo</span> $row[<span class="number">0</span>];  </span><br><span class="line">                &#125;  </span><br><span class="line">                <span class="keyword">else</span>  </span><br><span class="line">                &#123;  </span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('用户名或密码不正确！');history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('提交未成功！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="注册-register-php"><a href="#注册-register-php" class="headerlink" title="注册-register.php:"></a>注册-register.php:</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"regcheck.php"</span> method=<span class="string">"post"</span>&gt;  </span><br><span class="line">    用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span>/&gt;  </span><br><span class="line">    &lt;br/&gt;  </span><br><span class="line">    密　码:&lt;input type=<span class="string">"password"</span> name=<span class="string">"password"</span>/&gt;  </span><br><span class="line">    &lt;br/&gt;  </span><br><span class="line">    确认密码：&lt;input type=<span class="string">"password"</span> name=<span class="string">"confirm"</span>/&gt;  </span><br><span class="line">    &lt;br/&gt;  </span><br><span class="line">    &lt;input type=<span class="string">"Submit"</span> name=<span class="string">"Submit"</span> value=<span class="string">"注册"</span>/&gt;  </span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="注册检测-regcheck-php"><a href="#注册检测-regcheck-php" class="headerlink" title="注册检测-regcheck.php:"></a>注册检测-regcheck.php:</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">       error_reporting(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">"Submit"</span>]) &amp;&amp; $_POST[<span class="string">"Submit"</span>] == <span class="string">"注册"</span>)  </span><br><span class="line">       &#123;  </span><br><span class="line">           $user = $_POST[<span class="string">"username"</span>];  </span><br><span class="line">           $psw = $_POST[<span class="string">"password"</span>];  </span><br><span class="line">           $psw_confirm = $_POST[<span class="string">"confirm"</span>];  </span><br><span class="line">           <span class="keyword">if</span>($user == <span class="string">""</span> || $psw == <span class="string">""</span> || $psw_confirm == <span class="string">""</span>)  </span><br><span class="line">           &#123;  </span><br><span class="line">               <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('请确认信息完整性！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">           &#125;  </span><br><span class="line">           <span class="keyword">else</span>  </span><br><span class="line">           &#123;  </span><br><span class="line">               <span class="keyword">if</span>($psw == $psw_confirm)  </span><br><span class="line">               &#123;  </span><br><span class="line">                   mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">"root"</span>);   <span class="comment">//连接数据库  </span></span><br><span class="line">                   mysql_select_db(<span class="string">"vt"</span>);  <span class="comment">//选择数据库  </span></span><br><span class="line">                   mysql_query(<span class="string">"set names 'gdk'"</span>); <span class="comment">//设定字符集  </span></span><br><span class="line">                   $sql = <span class="string">"select username from user where username = '$_POST[username]'"</span>; <span class="comment">//SQL语句  </span></span><br><span class="line">                   $result = mysql_query($sql);    <span class="comment">//执行SQL语句  </span></span><br><span class="line">                   $num = mysql_num_rows($result); <span class="comment">//统计执行结果影响的行数  </span></span><br><span class="line">                   <span class="keyword">if</span>($num)    <span class="comment">//如果已经存在该用户  </span></span><br><span class="line">                   &#123;  </span><br><span class="line">                       <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('用户名已存在'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">                   &#125;  </span><br><span class="line">                   <span class="keyword">else</span>    <span class="comment">//不存在当前注册用户名称  </span></span><br><span class="line">                   &#123;  </span><br><span class="line">                       $sql_insert = <span class="string">"insert into user (username,password,phone,address) values('$_POST[username]','$_POST[password]','','')"</span>;  </span><br><span class="line">                       $res_insert = mysql_query($sql_insert);  </span><br><span class="line">                       <span class="comment">//$num_insert = mysql_num_rows($res_insert);  </span></span><br><span class="line">                       <span class="keyword">if</span>($res_insert)  </span><br><span class="line">                       &#123;  </span><br><span class="line">                           <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('注册成功！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">                       &#125;  </span><br><span class="line">                       <span class="keyword">else</span>  </span><br><span class="line">                       &#123;  </span><br><span class="line">                           <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('系统繁忙，请稍候！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">                       &#125;  </span><br><span class="line">                   &#125;  </span><br><span class="line">               &#125;  </span><br><span class="line">               <span class="keyword">else</span>  </span><br><span class="line">               &#123;  </span><br><span class="line">                   <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('密码不一致！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">               &#125;  </span><br><span class="line">           &#125;  </span><br><span class="line">       &#125;  </span><br><span class="line">       <span class="keyword">else</span>  </span><br><span class="line">       &#123;  </span><br><span class="line">           <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('提交未成功！'); history.go(-1);&lt;/script&gt;"</span>;  </span><br><span class="line">       &#125;  </span><br><span class="line">   <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>类和对象，如何设计，如何实现等以及蛋疼（优雅的）的OC函数命名规则</p>
+<h3 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>面向对象基础</h3><ul>
+<li>对象和类</li>
+<li>面向对象三大特性<ul>
+<li>封装（隐藏具体的实现逻辑 对外公开接口） </li>
+<li>继承 （OC只有单继承）</li>
+<li>多态（一个方法可以有多种实现）</li>
+</ul>
+</li>
+<li>面向对象思维<ul>
+<li>确定要解决的问题</li>
+<li>根据问题确定对象</li>
+<li>用类来描述</li>
+<li>转换成类代码<h4 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h4></li>
+</ul>
+</li>
+<li>对象是对客观事物的抽象 客观实体</li>
+<li>类是对对象的抽象</li>
+<li>类用来描述对象 是一系列方法和属性的集合</li>
+</ul>
+<h4 id="如何设计一个类"><a href="#如何设计一个类" class="headerlink" title="如何设计一个类"></a>如何设计一个类</h4><ul>
+<li>类的结构</li>
+<li>设计一个手机类</li>
+</ul>
+<h5 id="类的结构"><a href="#类的结构" class="headerlink" title="类的结构"></a>类的结构</h5><ul>
+<li>.m</li>
+<li>.h</li>
+<li>类的结构<ul>
+<li>类名 属性 方法</li>
+</ul>
+</li>
+</ul>
+<p>打开xcode 创建一个工程 -&gt; 再创建一个类(command + n)<br><strong><strong>创建类的时候，首字母大写 ，驼峰原则</strong></strong></p>
+<ul>
+<li>类的声明放在.h文件</li>
+<li>类的实现放在.m文件</li>
+</ul>
+<p>在写属性声明的时候 可以先都写在<code>@interface</code>开头的<code>{}</code>内部（准确的说 叫做类的成员变量<strong><strong>声明成员变量的时候要<code>_</code>开头</strong></strong>）,凡是<code>{}</code>中声明的变量默认都是<code>protected</code></p>
+<p><code>Phone.h</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Phone : NSobject</span><br><span class="line">&#123;</span><br><span class="line">    @public //访问域</span><br><span class="line">    CGFloat _screenSize;</span><br><span class="line">    NSString *_color;</span><br><span class="line">    CGFloat _memory;</span><br><span class="line">&#125;</span><br><span class="line">- (void)makeCallToSomeone:(NSString *)someone;</span><br><span class="line">- (void)sendMessage:(*NSStrng)message toReceiver:(NSString *)receiver;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p><code>Phone.m</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;Phone.h&quot;</span><br><span class="line">@implementation Phone</span><br><span class="line">- (void)makeCallToSomeone:(NSString *)someone</span><br><span class="line">&#123;</span><br><span class="line">    MSLog(@&quot;给%@&quot;,someone);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)sendMessage:(NSString *)message toReceiver:(NSString *)receiver</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;收件人:%@\n%@&quot;,receiver,message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>main.h</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &quot;Phone.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, consts char * argv[])</span><br><span class="line">&#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        Phone *phone = [Phone new];</span><br><span class="line">        </span><br><span class="line">        phone -&gt; _screenSize = 4.6;</span><br><span class="line">        phone -&gt; _color = @&quot;black&quot;;</span><br><span class="line">        phone -&gt; _memory = 1024;</span><br><span class="line">        NSLog(@&quot;%@&quot;,phone);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="其次，关于OC的方法命名规范："><a href="#其次，关于OC的方法命名规范：" class="headerlink" title="其次，关于OC的方法命名规范："></a>其次，关于OC的方法命名规范：</h4><p>相比于其他语言(C++)，OC对方法名进行了拆分处理，使得开发者更清晰地知道每个变量是最什么的。非常优雅。(不优雅也要强行优雅)<br>对比：<br><code>C++</code><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tableViewCommitEditingStyleForRowAtIndexPath</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    UITableView *tableView,</span></span></span><br><span class="line"><span class="function"><span class="params">    UITableViewCellEditingStyle editingStyle,</span></span></span><br><span class="line"><span class="function"><span class="params">    NSIndexPath *indexPath)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>Objective-C</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-  (void)tableView:(UITableView *)tableView</span><br><span class="line">commitEditingStyle:(UITableViewCellEditingStyle)editingStyle</span><br><span class="line"> forRowAtIndexPath:(NSIndexPath *)indexPath</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -352,13 +391,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></p>
+        <p><span>本文标题:</span><a href="/2019/01/28/IOS-Objective-C开发学习笔记-三/">IOS-Objective-C开发学习笔记-三</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
-        <p><span>发布时间:</span>2019-01-26, 11:19:56</p>
-        <p><span>最后更新:</span>2019-01-26, 14:21:21</p>
+        <p><span>发布时间:</span>2019-01-28, 21:53:56</p>
+        <p><span>最后更新:</span>2019-01-28, 21:57:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/01/26/PHP用户注册接口/" title="PHP用户注册接口">http://yoursite.com/2019/01/26/PHP用户注册接口/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/26/PHP用户注册接口/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/28/IOS-Objective-C开发学习笔记-三/" title="IOS-Objective-C开发学习笔记-三">http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记-三/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记-三/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -370,16 +409,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/01/26/Python-FCFS/">
-                    Python-FCFS
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/01/26/PHP分页/">
-                    PHP分页
+                <a href="/2019/01/28/IOS-Objective-C开发学习笔记-二/">
+                    IOS-Objective-C开发学习笔记(二)
                 </a>
             </div>
         
@@ -391,9 +424,9 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#登录-login-php"><span class="toc-number">1.</span> <span class="toc-text">登录-login.php</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登录检测-logcheck-php："><span class="toc-number">2.</span> <span class="toc-text">登录检测-logcheck.php：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册-register-php"><span class="toc-number">3.</span> <span class="toc-text">注册-register.php:</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#注册检测-regcheck-php"><span class="toc-number"></span> <span class="toc-text">注册检测-regcheck.php:</span></a>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象基础"><span class="toc-number">1.</span> <span class="toc-text">面向对象基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是对象"><span class="toc-number">1.1.</span> <span class="toc-text">什么是对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何设计一个类"><span class="toc-number">1.2.</span> <span class="toc-text">如何设计一个类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#类的结构"><span class="toc-number">1.2.1.</span> <span class="toc-text">类的结构</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其次，关于OC的方法命名规范："><span class="toc-number">1.3.</span> <span class="toc-text">其次，关于OC的方法命名规范：</span></a></li></ol></li></ol>
         
-    </li></div>
+    </div>
     <style>
         .left-col .switch-btn,
         .left-col .switch-area {
@@ -427,7 +460,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"PHP用户注册接口　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"IOS-Objective-C开发学习笔记-三　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -446,8 +479,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://yoursite.com/2019/01/26/PHP用户注册接口/';
-            this.page.identifier = '2019/01/26/PHP用户注册接口/';
+            this.page.url = 'http://yoursite.com/2019/01/28/IOS-Objective-C开发学习笔记-三/';
+            this.page.identifier = '2019/01/28/IOS-Objective-C开发学习笔记-三/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -469,15 +502,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/01/26/Python-FCFS/" title="上一篇: Python-FCFS">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/01/26/PHP分页/" title="下一篇: PHP分页">
+            <a href="/2019/01/28/IOS-Objective-C开发学习笔记-二/" title="下一篇: IOS-Objective-C开发学习笔记(二)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
