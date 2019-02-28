@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Peter W">
+
+
+
+<meta name="description" content="该笔记需要有一定的前置知识:高等数学，线性代数，概率论与数理统计，配合吴恩达机器学习，TensorFlow学习手册食用更佳( ´∀｀)σ">
+<meta name="keywords" content="机器学习,TensorFlow,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow学习笔记-更新中">
+<meta property="og:url" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/index.html">
+<meta property="og:site_name" content="Always Be a Student">
+<meta property="og:description" content="该笔记需要有一定的前置知识:高等数学，线性代数，概率论与数理统计，配合吴恩达机器学习，TensorFlow学习手册食用更佳( ´∀｀)σ">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/EA82027E5845C04802D5CD59FB1ADDF6.jpg%20=1400x635">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g0kp5ua3qrj30je0d6jsc.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/DFCF53C3E788950B2488DDC974821F33.jpg%20=692x381">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g0ktlipq8oj30va0la76z.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/105470007921C3C4016EB12D0AC4EAC8.jpg%20=565x483">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g0ku2ezaryj30ri0jcwf6.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/05B299D312C88BDAC09D58613221F1A7.jpg%20=827x396">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/8B6B3867F2D0C168E25206E0CD2FD62D.jpg%20=824x417">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfagy1g0lbgmx9alj30g80fmwf2.jpg">
+<meta property="og:updated_time" content="2019-02-28T09:46:51.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlow学习笔记-更新中">
+<meta name="twitter:description" content="该笔记需要有一定的前置知识:高等数学，线性代数，概率论与数理统计，配合吴恩达机器学习，TensorFlow学习手册食用更佳( ´∀｀)σ">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/quiver-image-url/EA82027E5845C04802D5CD59FB1ADDF6.jpg%20=1400x635">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Always Be a Student" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/icon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>TensorFlow学习笔记-更新中 | Always Be a Student</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Peter W</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力提高自身的不可替代性</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/mylove/">我和秦小姐</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:a_student_ke@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="https://weibo.com/p/1005056331741640" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/StudentKe" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" href="https://www.v2ex.com/member/Astudnet" title="V2EX"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/cola-72/" title="知乎"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com/#/user/home?id=278867624" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" href="https://www.facebook.com/peter.woops.5" title="Facebook"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/std_ke" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS/">IOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS-X/">OS X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective/">Objective</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome插件/">chrome插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objc/">objc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单变量线性回归/">单变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多变量线性回归/">多变量线性回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习实战/">机器学习实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考研/">考研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自用脚本/">自用脚本</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Peter W</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Peter W</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力提高自身的不可替代性</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/mylove/">我和秦小姐</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:a_student_ke@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="https://weibo.com/p/1005056331741640" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/StudentKe" title="GitHub"></a>
+                            
+                                <a class="fa V2EX" target="_blank" href="https://www.v2ex.com/member/Astudnet" title="V2EX"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/cola-72/" title="知乎"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com/#/user/home?id=278867624" title="网易云音乐"></a>
+                            
+                                <a class="fa Facebook" target="_blank" href="https://www.facebook.com/peter.woops.5" title="Facebook"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/std_ke" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-TensorFlow学习笔记-更新中" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/02/28/TensorFlow学习笔记-更新中/" class="article-date">
+      <time datetime="2019-02-28T09:45:41.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TensorFlow学习笔记-更新中
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong><strong>该笔记需要有一定的前置知识:高等数学，线性代数，概率论与数理统计，配合吴恩达机器学习，TensorFlow学习手册食用更佳( ´∀｀)σ</strong></strong></p>
+<a id="more"></a>
+<h1 id="什么是TensorFlow？"><a href="#什么是TensorFlow？" class="headerlink" title="什么是TensorFlow？"></a>什么是TensorFlow？</h1><p><img src="quiver-image-url/EA82027E5845C04802D5CD59FB1ADDF6.jpg =1400x635" alt="IMAGE"></p>
+<blockquote>
+<p>TensorFlow™ 是一个开放源代码软件库，用于进行高性能数值计算。借助其灵活的架构，用户可以轻松地将计算工作部署到多种平台（CPU、GPU、TPU）和设备（桌面设备、服务器集群、移动设备、边缘设备等）。TensorFlow™ 最初是由 Google Brain 团队（隶属于 Google 的 AI 部门）中的研究人员和工程师开发的，可为机器学习和深度学习提供强力支持，并且其灵活的数值计算核心广泛应用于许多其他科学领域。</p>
+</blockquote>
+<p>摘自<a href="https://www.tensorflow.org/?hl=zh_cn" target="_blank" rel="noopener">TensorFlow中文网</a></p>
+<h1 id="什么是神经网络（以下简称NN）"><a href="#什么是神经网络（以下简称NN）" class="headerlink" title="什么是神经网络（以下简称NN）?"></a>什么是神经网络（以下简称NN）?</h1><blockquote>
+<p>人工神经网络（英语：Artificial Neural Network，ANN），简称神经网络（Neural Network，NN）或类神经网络，在机器学习和认知科学领域，是一种模仿生物神经网络（动物的中枢神经系统，特别是大脑）的结构和功能的数学模型或计算模型，用于对函数进行估计或近似。神经网络由大量的人工神经元联结进行计算。大多数情况下人工神经网络能在外界信息的基础上改变内部结构，是一种自适应系统，通俗的讲就是具备学习功能。现代神经网络是一种非线性统计性数据建模工具。<br>神经网络的构筑理念是受到生物（人或其他动物）神经网络功能的运作启发而产生的。人工神经网络通常是通过一个基于数学统计学类型的学习方法（Learning Method）得以优化，所以也是数学统计学方法的一种实际应用，通过统计学的标准数学方法我们能够得到大量的可以用函数来表达的局部结构空间，另一方面在人工智能学的人工感知领域，我们通过数学统计学的应用可以来做人工感知方面的决定问题（也就是说通过统计学的方法，人工神经网络能够类似人一样具有简单的决定能力和简单的判断能力），这种方法比起正式的逻辑学推理演算更具有优势。<br>和其他机器学习方法一样，神经网络已经被用于解决各种各样的问题，例如机器视觉和语音识别。这些问题都是很难被传统基于规则的编程所解决的。</p>
+</blockquote>
+<p>摘自<a href="https://zh.wikipedia.org/wiki/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">维基百科人工神经网络</a></p>
+<h1 id="使用TensorFlow的NN"><a href="#使用TensorFlow的NN" class="headerlink" title="使用TensorFlow的NN"></a>使用TensorFlow的NN</h1><ul>
+<li>张量表示数据</li>
+<li>计算图搭建网络</li>
+<li>会话执行计算图</li>
+<li>优化线上权重(参数)得到模型</li>
+</ul>
+<h2 id="张量-tensor"><a href="#张量-tensor" class="headerlink" title="张量(tensor)"></a>张量(tensor)</h2><p>tensor也是多重数组(列表)<br><strong><strong>阶</strong></strong>叫做tensor的维数</p>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-D</td>
+<td>0 阶</td>
+<td>标量 scalar</td>
+<td>1,2,3</td>
+</tr>
+<tr>
+<td>1-D</td>
+<td>1 阶</td>
+<td>向量 vector</td>
+<td>[1,2,3]</td>
+</tr>
+<tr>
+<td>2-D</td>
+<td>2 阶</td>
+<td>矩阵 martix</td>
+<td>[[1,2,3],[2,3,4],[3,4,5]]</td>
+</tr>
+<tr>
+<td>n-D</td>
+<td>n阶</td>
+<td>张量tensor</td>
+<td>[[[…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="TensorFlow的第一个例子"><a href="#TensorFlow的第一个例子" class="headerlink" title="TensorFlow的第一个例子"></a>TensorFlow的第一个例子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = tf.constant([<span class="number">1.0</span>,<span class="number">2.0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = tf.constant([<span class="number">3.0</span>,<span class="number">4.0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = a+b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result</span><br><span class="line">&lt;tf.Tensor <span class="string">'add:0'</span> shape=(<span class="number">2</span>,) dtype=float32&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">      sess.run(result)</span><br><span class="line"></span><br><span class="line">array([<span class="number">4.</span>, <span class="number">6.</span>], dtype=float32)</span><br></pre></td></tr></table></figure>
+<p>代码 <code>&lt;tf.Tensor &#39;add:0&#39; shape=(2,) dtype=float32&gt;</code>的解释:</p>
+<p><code>add</code> -&gt; 节点名<br><code>0</code> -&gt; 0个输出<br><code>shape=</code> -&gt; 维度<br><code>(2,)</code> -&gt; 一维，长度2<br><code>dtype = float32</code> -&gt; 数据类型</p>
+<h2 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h2><p>计算图是指搭建神经网络的过程，<strong><strong>只搭建，不计算</strong></strong>。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>神经元是神经网络的基本单位</p>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g0kp5ua3qrj30je0d6jsc.jpg" alt=""></p>
+<h3 id="神经元的计算过程"><a href="#神经元的计算过程" class="headerlink" title="神经元的计算过程"></a>神经元的计算过程</h3><p> 上图为例,这个神经元的计算过程为：<br> $$y = x_1\times w_1 + x_2 \times w_2$$<br> 写成矩阵乘法的形式：<br>$$<br>    X = \left(\matrix{x_1 \cr x_2\cr}\right),<br>    W = \left(\matrix{w_1&amp;w_2}\right)<br>$$</p>
+<p>$$<br>    Y = X \times W = \left(\matrix{x_1\cr x_2\cr } \right) \times \left(\matrix{ w_1 &amp; w_2 }\right) =     x_1\times w_1 + x_2\times  w_2<br>$$</p>
+<h3 id="会话Session"><a href="#会话Session" class="headerlink" title="会话Session"></a>会话Session</h3><p><code>TensorFlow</code>的需要用<code>Session</code>的<code>with</code>结构来输出，执行完计算图的过程之后只能得到一个<code>TensorFlow</code>的<code>Objective</code>，如果执行输出，就会抛出一个<code>TypeError</code>的<code>exception</code></p>
+<p><code>must be real number, not Tensor</code></p>
+<h4 id="会话结构"><a href="#会话结构" class="headerlink" title="会话结构"></a>会话结构</h4> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">   sess.run(result)</span><br></pre></td></tr></table></figure>
+<h3 id="NN结构的权重-参数"><a href="#NN结构的权重-参数" class="headerlink" title="NN结构的权重(参数)"></a>NN结构的权重(参数)</h3><p>一般情况下W由变量表示，一开始随机生成，随后通过神经网络的反向传播和损失函数（loss function）或代价函数（cost function）不断调整W直到模型最优。W的生成方式可用正态分布生成<br><code>w = tf.Variable(tf.random_normal([2,3],stddev = 2,mean = 0,seed = 1))</code></p>
+<h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><ul>
+<li><code>tf.random_normal()</code>指正态分布的W，还可用去掉过大偏离点的正态分布(大于标准差)<code>tf.turncated_normal()</code>和平均分布<code>tf.rnadom_uniform()</code></li>
+</ul>
+<ul>
+<li><code>[2,3]</code>表示2*3的矩阵</li>
+<li><code>stddev = 2</code>表示标准差为2</li>
+<li><code>mean</code>表示均值</li>
+<li><code>seed</code>表示随机种子</li>
+</ul>
+<p>其中，标准差，均值和随机种子是缺省的。</p>
+<h2 id="神经网络的实现过程"><a href="#神经网络的实现过程" class="headerlink" title="神经网络的实现过程"></a>神经网络的实现过程</h2><ul>
+<li>准备数据集，提取特征值，作为输入喂给神经网络</li>
+<li>搭建NN结果，从输入到输出，先搭建计算图，再执行会话(向前传播过程)</li>
+<li>大量特征数据喂给NN，迭代优化NN参数，直到模型最优(反向传播过程)</li>
+<li>使用训练好的模型预测和分类</li>
+</ul>
+<h2 id="向前传播-搭建模型和推理的过程"><a href="#向前传播-搭建模型和推理的过程" class="headerlink" title="向前传播(搭建模型和推理的过程)"></a>向前传播(搭建模型和推理的过程)</h2><blockquote>
+<p>例1(全连接网络)<br>生产一批零件的体积$x_1$和重量$x_2$为特征值输入NN，通过NN后输出一个数值，NN已给出，要求写出计算过程。</p>
+</blockquote>
+<p><img src="quiver-image-url/DFCF53C3E788950B2488DDC974821F33.jpg =692x381" alt="IMAGE"></p>
+<p>计算过程：</p>
+<p>$$X = \left(\matrix{x_1 &amp; x_2} \right ),W^{(1)} = \left(\matrix{w^{(1)}<em>{1,1} &amp; w^{(1)}</em>{1,2} &amp; w^{(1)}<em>{1,3} \cr w^{(1)}</em>{2,1} &amp; w^{(1)}<em>{2,2} &amp; w^{(1)}</em>{2,3} }\right)$$</p>
+<p>$$a^{(1)} = \left(\matrix{a_{1,1} &amp; a_{1,2} &amp; a_{1,3}}\right) = X * W^{(1)} $$</p>
+<p>$$W^{(2)} = \left(\matrix{w^{(2)}<em>{1,1} \cr w^{(2)}</em>{2,1} \cr w^{(2)}_{3,1}}\right)$$</p>
+<p>$$Y = a^{(1)} * W^{(2)}$$</p>
+<h2 id="反向传播-训练神经网络参数"><a href="#反向传播-训练神经网络参数" class="headerlink" title="反向传播(训练神经网络参数)"></a>反向传播(训练神经网络参数)</h2><p>反向传播使用损失函数使得NN模型在训练函数上的损失最小</p>
+<p>损失函数(loss) 预测值(y)和标准值(y_)的差距</p>
+<p>均方误差MSE： </p>
+<p>$$MSE(y__,y) = \frac {\sum_{i=1}^{n} {(y__ - y)^2}} {n} $$</p>
+<p>在<code>TensorFlow</code>的表示:</p>
+<p><code>loss = tf.reduce_mean(tf.square(y_ - y))</code></p>
+<blockquote>
+<p>例1续： 设${x_1 + x_2 \leq 1表示该零件合格，要求构建神经网络(代码)}$</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#两层的简单神经网络(全连接)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">### 反向传播算法的理解</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">BATCH_SIZE = <span class="number">8</span> <span class="comment">#一次喂入神经网络的大小</span></span><br><span class="line">seed = <span class="number">23455</span> <span class="comment"># 随机种子</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 产生伪数据集</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 基于seed产生随机数</span></span><br><span class="line">rng = np.random.RandomState(seed)</span><br><span class="line"><span class="comment">#随机数字返回32行2列的矩阵 表示体积和重量 作为输入数据集</span></span><br><span class="line">X = rng.rand(<span class="number">32</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 从X这个32行2列的矩阵中 取出一行 判断 如果和小于1  赋值给Y=1 表示合格  否则Y=0表示不合格</span></span><br><span class="line"><span class="comment"># 作为输入数据集的标签(正确答案)</span></span><br><span class="line">Y = [[int(x0+x1 &lt; <span class="number">1</span>)] <span class="keyword">for</span> (x0,x1) <span class="keyword">in</span> X]</span><br><span class="line">print(<span class="string">"X:\n"</span>,X)</span><br><span class="line">print(<span class="string">"Y:\n"</span>,Y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义神经网络的输入 参数 和输出 </span></span><br><span class="line"><span class="comment"># 向前传播过程</span></span><br><span class="line"></span><br><span class="line">x = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">2</span>))</span><br><span class="line">y_ = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">1</span>,seed=<span class="number">2</span>))</span><br><span class="line">w2 = tf.Variable(tf.random_normal([<span class="number">3</span>,<span class="number">1</span>],stddev=<span class="number">1</span>,seed=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">a = tf.matmul(x,w1)</span><br><span class="line">y = tf.matmul(a,w2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数以及反向传播方法</span></span><br><span class="line"></span><br><span class="line">loss = tf.reduce_mean(tf.square(y-y_))</span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.001</span>).minimize(loss)</span><br><span class="line"><span class="comment">#train_step = tf.train.MomentumOptimizer(0.001,0.9).minimize(loss)</span></span><br><span class="line"><span class="comment">#train_step = tf.train.AdadeltaOptimizer(0.001).minimize(loss)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成会话 训练STEPS轮</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init_op = tf.global_variables_initializer()</span><br><span class="line">    sess.run(init_op)</span><br><span class="line">    <span class="comment">#输出未经训练的参数的取值</span></span><br><span class="line">    print(<span class="string">"W1:\n"</span>,sess.run(w1))</span><br><span class="line">    print(<span class="string">"W2:\n"</span>,sess.run(w2))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练</span></span><br><span class="line"></span><br><span class="line">    STEPS = <span class="number">6000</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(STEPS):</span><br><span class="line">        start = (i*BATCH_SIZE) % <span class="number">32</span></span><br><span class="line">        end = start +BATCH_SIZE</span><br><span class="line">        sess.run(train_step,feed_dict=&#123;x: X[start:end],y_:Y[start:end]&#125;)</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> ==<span class="number">0</span>:</span><br><span class="line">            total_loss = sess.run(loss,feed_dict=&#123;x:X,y_:Y&#125;)</span><br><span class="line">            print(<span class="string">"After %d traning steps .loss on all data is %g"</span> %(i,total_loss))</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 输出训练后的参数</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">"W1:\n"</span>,sess.run(w1))</span><br><span class="line">    print(<span class="string">"W2:\n"</span>,sess.run(w2))</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">X:</span><br><span class="line"> [[0.83494319 0.11482951]</span><br><span class="line"> [0.66899751 0.46594987]</span><br><span class="line"> [0.60181666 0.58838408]</span><br><span class="line"> [0.31836656 0.20502072]</span><br><span class="line"> [0.87043944 0.02679395]</span><br><span class="line"> [0.41539811 0.43938369]</span><br><span class="line"> [0.68635684 0.24833404]</span><br><span class="line"> [0.97315228 0.68541849]</span><br><span class="line"> [0.03081617 0.89479913]</span><br><span class="line"> [0.24665715 0.28584862]</span><br><span class="line"> [0.31375667 0.47718349]</span><br><span class="line"> [0.56689254 0.77079148]</span><br><span class="line"> [0.7321604  0.35828963]</span><br><span class="line"> [0.15724842 0.94294584]</span><br><span class="line"> [0.34933722 0.84634483]</span><br><span class="line"> [0.50304053 0.81299619]</span><br><span class="line"> [0.23869886 0.9895604 ]</span><br><span class="line"> [0.4636501  0.32531094]</span><br><span class="line"> [0.36510487 0.97365522]</span><br><span class="line"> [0.73350238 0.83833013]</span><br><span class="line"> [0.61810158 0.12580353]</span><br><span class="line"> [0.59274817 0.18779828]</span><br><span class="line"> [0.87150299 0.34679501]</span><br><span class="line"> [0.25883219 0.50002932]</span><br><span class="line"> [0.75690948 0.83429824]</span><br><span class="line"> [0.29316649 0.05646578]</span><br><span class="line"> [0.10409134 0.88235166]</span><br><span class="line"> [0.06727785 0.57784761]</span><br><span class="line"> [0.38492705 0.48384792]</span><br><span class="line"> [0.69234428 0.19687348]</span><br><span class="line"> [0.42783492 0.73416985]</span><br><span class="line"> [0.09696069 0.04883936]]</span><br><span class="line">Y:</span><br><span class="line"> [[1], [0], [0], [1], [1], [1], [1], [0], [1], [1], [1], [0], [0], [0], [0], [0], [0], [1], [0], [0], [1], [1], [0], [1], [0], [1], [1], [1], [1], [1], [0], [1]]</span><br><span class="line">2019-02-27 10:49:25.877711: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA</span><br><span class="line">W1:</span><br><span class="line"> [[-0.85811085 -0.19662298  0.13895045]</span><br><span class="line"> [-1.2212768  -0.40341285 -1.1454041 ]]</span><br><span class="line">W2:</span><br><span class="line"> [[-0.8113182 ]</span><br><span class="line"> [ 1.4845988 ]</span><br><span class="line"> [ 0.06532937]]</span><br><span class="line">After 0 traning steps .loss on all data is 0.396911</span><br><span class="line">After 500 traning steps .loss on all data is 0.390187</span><br><span class="line">After 1000 traning steps .loss on all data is 0.386858</span><br><span class="line">After 1500 traning steps .loss on all data is 0.385192</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">W1:</span><br><span class="line"> [[-0.9150884  -0.09321376  0.14530948]</span><br><span class="line"> [-1.1892611  -0.4614115  -1.1490022 ]]</span><br><span class="line">W2:</span><br><span class="line"> [[-0.8259251 ]</span><br><span class="line"> [ 1.4913318 ]</span><br><span class="line"> [ 0.11993836]]</span><br></pre></td></tr></table></figure></p>
+<h2 id="神经元模型"><a href="#神经元模型" class="headerlink" title="神经元模型"></a>神经元模型</h2><h3 id="普通神经元模型"><a href="#普通神经元模型" class="headerlink" title="普通神经元模型"></a>普通神经元模型</h3><p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g0ktlipq8oj30va0la76z.jpg" alt=""></p>
+<h3 id="McCulloch-Pitts神经元模型"><a href="#McCulloch-Pitts神经元模型" class="headerlink" title="McCulloch-Pitts神经元模型"></a>McCulloch-Pitts神经元模型</h3><p><img src="quiver-image-url/105470007921C3C4016EB12D0AC4EAC8.jpg =565x483" alt="IMAGE"></p>
+<p>加入激活函数解决了线性模型不能解决的异或模型，其中$f(\sum_ {i}{} x_i*w_i + b)$是激活函数(activaction function),b是偏置项(bios)</p>
+<h4 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h4><ul>
+<li>relu<br>$$f(x) = max(x,0) = \begin{cases}0 \qquad\qquad x \leq 0 \ x \qquad\qquad x \geq 0\end{cases}$$</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g0ku2ezaryj30ri0jcwf6.jpg" alt=""></p>
+<ul>
+<li>sigmoid</li>
+</ul>
+<p>$$f(x) = \frac {1} {1+e^{-x}}$$</p>
+<p><img src="quiver-image-url/05B299D312C88BDAC09D58613221F1A7.jpg =827x396" alt="IMAGE"></p>
+<ul>
+<li>tanh</li>
+</ul>
+<p>$$f(x) = \frac {1-e^{-2x}} {1 + e^{-2x}}$$</p>
+<p><img src="quiver-image-url/8B6B3867F2D0C168E25206E0CD2FD62D.jpg =824x417" alt="IMAGE"></p>
+<h2 id="神经网络的优化"><a href="#神经网络的优化" class="headerlink" title="神经网络的优化"></a>神经网络的优化</h2><ul>
+<li>损失函数loss</li>
+<li>学习率 learning_rate</li>
+<li>平均滑动 ema</li>
+<li>正则化 regularization</li>
+</ul>
+<h3 id="损失函数（loss-预测值y-与已知答案-y-的差距"><a href="#损失函数（loss-预测值y-与已知答案-y-的差距" class="headerlink" title="损失函数（loss) 预测值y_与已知答案(y_)的差距"></a>损失函数（loss) 预测值y_与已知答案(y_)的差距</h3><p>NN的优化目标： loss最小</p>
+<p>$$损失函数 \to \begin{cases}  mse \quad(Mean Squared Error) \quad 均方误差 \ 自定义 \ ce \quad (Cross Entropy) \quad  交叉熵\end{cases}$$</p>
+<h4 id="均方误差mse"><a href="#均方误差mse" class="headerlink" title="均方误差mse:"></a>均方误差mse:</h4><p>$$ MSE(y_,y) = \frac {\sum_ {i=1}^{n} (y__ -y)^2} {n}$$</p>
+<blockquote>
+<p>例2：构建一层神经网络,预测酸奶日销量y, $x_1$,$x_2$ 是影响因素。</p>
+</blockquote>
+<p>分析: 建模前，应该采集的数据集有：每日的$x_1$和$x_2$ 销量y_。（在此例子中，我们你早数据X,Y_ : $Y__ = X_1 + X_2$，再加入-0.5~+0.5的噪声使得伪数据集更真实）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#两层的简单神经网络(全连接)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">### 酸奶预测</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">BATCH_SIZE = <span class="number">8</span> <span class="comment">#一次喂入神经网络的大小</span></span><br><span class="line">seed = <span class="number">23455</span> <span class="comment"># 随机种子</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 基于seed产生随机数</span></span><br><span class="line">rng = np.random.RandomState(seed)</span><br><span class="line"><span class="comment">#随机数字返回32行2列的矩阵 表示体积和重量 作为输入数据集</span></span><br><span class="line">X = rng.rand(<span class="number">32</span>,<span class="number">2</span>)</span><br><span class="line">Y_ = [[x1+x2+(rng.rand()/<span class="number">10.0</span><span class="number">-0.05</span>)] <span class="keyword">for</span> (x1,x2) <span class="keyword">in</span> X]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义神经网络的输入 参数 和输出 </span></span><br><span class="line"><span class="comment"># 向前传播过程</span></span><br><span class="line"></span><br><span class="line">x = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">2</span>))</span><br><span class="line">y_ = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">1</span>],stddev=<span class="number">1</span>,seed=<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">y = tf.matmul(x,w1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数以及反向传播方法</span></span><br><span class="line"></span><br><span class="line">loss = tf.reduce_mean(tf.square(y - y_))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.001</span>).minimize(loss)</span><br><span class="line"><span class="comment">#train_step = tf.train.MomentumOptimizer(0.001,0.9).minimize(loss)</span></span><br><span class="line"><span class="comment">#train_step = tf.train.AdadeltaOptimizer(0.001).minimize(loss)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成会话 训练STEPS轮</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init_op = tf.global_variables_initializer() <span class="comment">#初始化所有变量</span></span><br><span class="line">    sess.run(init_op)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练</span></span><br><span class="line"></span><br><span class="line">    STEPS = <span class="number">50000</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(STEPS):</span><br><span class="line">        start = (i*BATCH_SIZE) % <span class="number">32</span></span><br><span class="line">        end = start +BATCH_SIZE</span><br><span class="line">        sess.run(train_step,feed_dict=&#123;x: X[start:end],y_:Y_[start:end]&#125;)</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> ==<span class="number">0</span>:</span><br><span class="line">            total_loss = sess.run(loss,feed_dict=&#123;x:X,y_:Y_&#125;)</span><br><span class="line">            print(<span class="string">"After %d traning steps .loss on all data is %g"</span> %(i,total_loss))</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 输出训练后的参数</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">"W1:\n"</span>,sess.run(w1))</span><br></pre></td></tr></table></figure>
+<p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">After 0 traning steps .loss on all data is 2.48876</span><br><span class="line">After 500 traning steps .loss on all data is 0.85528</span><br><span class="line">After 1000 traning steps .loss on all data is 0.302797</span><br><span class="line">After 1500 traning steps .loss on all data is 0.114376</span><br><span class="line">After 2000 traning steps .loss on all data is 0.0488448</span><br><span class="line">After 2500 traning steps .loss on all data is 0.0250235</span><br><span class="line">After 3000 traning steps .loss on all data is 0.0155473</span><br><span class="line">After 3500 traning steps .loss on all data is 0.0111573</span><br><span class="line">After 4000 traning steps .loss on all data is 0.00869355</span><br><span class="line">After 4500 traning steps .loss on all data is 0.00705474</span><br><span class="line">After 5000 traning steps .loss on all data is 0.00583891</span><br><span class="line">After 5500 traning steps .loss on all data is 0.00488469</span><br><span class="line">After 6000 traning steps .loss on all data is 0.00411648</span><br><span class="line">After 6500 traning steps .loss on all data is 0.00349116</span><br><span class="line">After 7000 traning steps .loss on all data is 0.00297992</span><br><span class="line">After 7500 traning steps .loss on all data is 0.00256107</span><br><span class="line">After 8000 traning steps .loss on all data is 0.00221769</span><br><span class="line">After 8500 traning steps .loss on all data is 0.00193611</span><br><span class="line">After 9000 traning steps .loss on all data is 0.00170515</span><br><span class="line">After 9500 traning steps .loss on all data is 0.00151571</span><br><span class="line">After 10000 traning steps .loss on all data is 0.00136033</span><br><span class="line">After 10500 traning steps .loss on all data is 0.00123288</span><br><span class="line">After 11000 traning steps .loss on all data is 0.00112833</span><br><span class="line">After 11500 traning steps .loss on all data is 0.00104257</span><br><span class="line">After 12000 traning steps .loss on all data is 0.000972239</span><br><span class="line">After 12500 traning steps .loss on all data is 0.000914546</span><br><span class="line">After 13000 traning steps .loss on all data is 0.000867223</span><br><span class="line">After 13500 traning steps .loss on all data is 0.000828402</span><br><span class="line">After 14000 traning steps .loss on all data is 0.000796561</span><br><span class="line">After 14500 traning steps .loss on all data is 0.000770443</span><br><span class="line">After 15000 traning steps .loss on all data is 0.000749021</span><br><span class="line">After 15500 traning steps .loss on all data is 0.000731453</span><br><span class="line">After 16000 traning steps .loss on all data is 0.000717037</span><br><span class="line">After 16500 traning steps .loss on all data is 0.000705214</span><br><span class="line">After 17000 traning steps .loss on all data is 0.000695519</span><br><span class="line">After 17500 traning steps .loss on all data is 0.000687564</span><br><span class="line">After 18000 traning steps .loss on all data is 0.000681038</span><br><span class="line">After 18500 traning steps .loss on all data is 0.000675687</span><br><span class="line">After 19000 traning steps .loss on all data is 0.000671295</span><br><span class="line">After 19500 traning steps .loss on all data is 0.000667701</span><br><span class="line">After 20000 traning steps .loss on all data is 0.000664741</span><br><span class="line">After 20500 traning steps .loss on all data is 0.000662322</span><br><span class="line">After 21000 traning steps .loss on all data is 0.000660335</span><br><span class="line">After 21500 traning steps .loss on all data is 0.000658707</span><br><span class="line">After 22000 traning steps .loss on all data is 0.000657368</span><br><span class="line">After 22500 traning steps .loss on all data is 0.000656275</span><br><span class="line">After 23000 traning steps .loss on all data is 0.000655372</span><br><span class="line">After 23500 traning steps .loss on all data is 0.000654635</span><br><span class="line">After 24000 traning steps .loss on all data is 0.000654034</span><br><span class="line">After 24500 traning steps .loss on all data is 0.000653543</span><br><span class="line">After 25000 traning steps .loss on all data is 0.000653136</span><br><span class="line">After 25500 traning steps .loss on all data is 0.000652797</span><br><span class="line">After 26000 traning steps .loss on all data is 0.000652516</span><br><span class="line">After 26500 traning steps .loss on all data is 0.000652293</span><br><span class="line">After 27000 traning steps .loss on all data is 0.000652109</span><br><span class="line">After 27500 traning steps .loss on all data is 0.000651959</span><br><span class="line">After 28000 traning steps .loss on all data is 0.000651836</span><br><span class="line">After 28500 traning steps .loss on all data is 0.000651735</span><br><span class="line">After 29000 traning steps .loss on all data is 0.00065165</span><br><span class="line">After 29500 traning steps .loss on all data is 0.000651582</span><br><span class="line">After 30000 traning steps .loss on all data is 0.000651528</span><br><span class="line">After 30500 traning steps .loss on all data is 0.000651481</span><br><span class="line">After 31000 traning steps .loss on all data is 0.000651442</span><br><span class="line">After 31500 traning steps .loss on all data is 0.000651411</span><br><span class="line">After 32000 traning steps .loss on all data is 0.000651385</span><br><span class="line">After 32500 traning steps .loss on all data is 0.000651364</span><br><span class="line">After 33000 traning steps .loss on all data is 0.000651348</span><br><span class="line">After 33500 traning steps .loss on all data is 0.000651334</span><br><span class="line">After 34000 traning steps .loss on all data is 0.000651323</span><br><span class="line">After 34500 traning steps .loss on all data is 0.000651315</span><br><span class="line">After 35000 traning steps .loss on all data is 0.000651308</span><br><span class="line">After 35500 traning steps .loss on all data is 0.000651303</span><br><span class="line">After 36000 traning steps .loss on all data is 0.000651296</span><br><span class="line">After 36500 traning steps .loss on all data is 0.000651291</span><br><span class="line">After 37000 traning steps .loss on all data is 0.000651286</span><br><span class="line">After 37500 traning steps .loss on all data is 0.000651284</span><br><span class="line">After 38000 traning steps .loss on all data is 0.000651282</span><br><span class="line">After 38500 traning steps .loss on all data is 0.00065128</span><br><span class="line">After 39000 traning steps .loss on all data is 0.000651279</span><br><span class="line">After 39500 traning steps .loss on all data is 0.000651278</span><br><span class="line">After 40000 traning steps .loss on all data is 0.000651277</span><br><span class="line">After 40500 traning steps .loss on all data is 0.000651276</span><br><span class="line">After 41000 traning steps .loss on all data is 0.000651275</span><br><span class="line">After 41500 traning steps .loss on all data is 0.000651274</span><br><span class="line">After 42000 traning steps .loss on all data is 0.000651273</span><br><span class="line">After 42500 traning steps .loss on all data is 0.000651272</span><br><span class="line">After 43000 traning steps .loss on all data is 0.000651272</span><br><span class="line">After 43500 traning steps .loss on all data is 0.000651271</span><br><span class="line">After 44000 traning steps .loss on all data is 0.000651271</span><br><span class="line">After 44500 traning steps .loss on all data is 0.000651271</span><br><span class="line">After 45000 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 45500 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 46000 traning steps .loss on all data is 0.000651271</span><br><span class="line">After 46500 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 47000 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 47500 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 48000 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 48500 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 49000 traning steps .loss on all data is 0.00065127</span><br><span class="line">After 49500 traning steps .loss on all data is 0.00065127</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">W1:</span><br><span class="line"> [[1.0042378 ]</span><br><span class="line"> [0.99486846]]</span><br><span class="line">Terminated: 15</span><br></pre></td></tr></table></figure></p>
+<p>从以上结果我们可以看出，最终得到两个参数$w_1 = 1.004$ ,$w_2 = 0.995$ 。都非常接近1，也证明我们找到的参数正确(符合伪造数据集中的$y__ = x_1 + x_2$).</p>
+<blockquote>
+<p>接例2：为了参数预测多了，损失成本COST1元，参数预测少了，损失利润PROFIT9元，为了利益最大化，我们希望尽量损失成本。</p>
+</blockquote>
+<p>分析：<br>可以自定义损失函数$$ loss(y__,y) = \sum_ {n} f(y__ - y) $$<br>$$f(y__ - y) =  \begin{cases} PROFIT <em> (y__ - y) \qquad y \leq y__  \ COST </em> (y - y__ ) \qquad \quad y__ \leq y\end{cases}$$</p>
+<p>代码实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#两层的简单神经网络(全连接)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"><span class="comment">### 酸奶预测</span></span><br><span class="line"><span class="comment">###</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">BATCH_SIZE = <span class="number">8</span> <span class="comment">#一次喂入神经网络的大小</span></span><br><span class="line">seed = <span class="number">23455</span> <span class="comment"># 随机种子</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 基于seed产生随机数</span></span><br><span class="line">rng = np.random.RandomState(seed)</span><br><span class="line"><span class="comment">#随机数字返回32行2列的矩阵 表示体积和重量 作为输入数据集</span></span><br><span class="line">X = rng.rand(<span class="number">32</span>,<span class="number">2</span>)</span><br><span class="line">Y_ = [[x1+x2+(rng.rand()/<span class="number">10.0</span><span class="number">-0.05</span>)] <span class="keyword">for</span> (x1,x2) <span class="keyword">in</span> X]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义神经网络的输入 参数 和输出 </span></span><br><span class="line"><span class="comment"># 向前传播过程</span></span><br><span class="line"></span><br><span class="line">x = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">2</span>))</span><br><span class="line">y_ = tf.placeholder(tf.float32,shape=(<span class="keyword">None</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">1</span>],stddev=<span class="number">1</span>,seed=<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">y = tf.matmul(x,w1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数以及反向传播方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#loss = tf.reduce_mean(tf.square(y - y_))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自定义损失函数</span></span><br><span class="line">COST = <span class="number">1</span></span><br><span class="line">PROFIT = <span class="number">9</span></span><br><span class="line">loss = tf.reduce_sum(tf.where(tf.greater(y,y_),COST*(y-y_),PROFIT*(y_-y)))</span><br><span class="line"></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.001</span>).minimize(loss)</span><br><span class="line"><span class="comment">#train_step = tf.train.MomentumOptimizer(0.001,0.9).minimize(loss)</span></span><br><span class="line"><span class="comment">#train_step = tf.train.AdadeltaOptimizer(0.001).minimize(loss)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成会话 训练STEPS轮</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init_op = tf.global_variables_initializer() <span class="comment">#初始化所有变量</span></span><br><span class="line">    sess.run(init_op)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练</span></span><br><span class="line"></span><br><span class="line">    STEPS = <span class="number">50000</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(STEPS):</span><br><span class="line">        start = (i*BATCH_SIZE) % <span class="number">32</span></span><br><span class="line">        end = start +BATCH_SIZE</span><br><span class="line">        sess.run(train_step,feed_dict=&#123;x: X[start:end],y_:Y_[start:end]&#125;)</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> ==<span class="number">0</span>:</span><br><span class="line">            total_loss = sess.run(loss,feed_dict=&#123;x:X,y_:Y_&#125;)</span><br><span class="line">            print(<span class="string">"After %d traning steps .loss on all data is %g"</span> %(i,total_loss))</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 输出训练后的参数</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">"W1:\n"</span>,sess.run(w1))</span><br></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">After 0 traning steps .loss on all data is 419.879</span><br><span class="line">After 500 traning steps .loss on all data is 1.91246</span><br><span class="line">After 1000 traning steps .loss on all data is 1.9079</span><br><span class="line">After 1500 traning steps .loss on all data is 1.91344</span><br><span class="line">After 2000 traning steps .loss on all data is 1.92183</span><br><span class="line">After 2500 traning steps .loss on all data is 1.92732</span><br><span class="line">After 3000 traning steps .loss on all data is 1.91853</span><br><span class="line">After 3500 traning steps .loss on all data is 1.92395</span><br><span class="line">After 4000 traning steps .loss on all data is 1.93173</span><br><span class="line">After 4500 traning steps .loss on all data is 1.92058</span><br><span class="line">After 5000 traning steps .loss on all data is 1.91603</span><br><span class="line">After 5500 traning steps .loss on all data is 1.93591</span><br><span class="line">After 6000 traning steps .loss on all data is 1.91265</span><br><span class="line">After 6500 traning steps .loss on all data is 1.91397</span><br><span class="line">After 7000 traning steps .loss on all data is 1.90928</span><br><span class="line">After 7500 traning steps .loss on all data is 1.93353</span><br><span class="line">After 8000 traning steps .loss on all data is 1.91814</span><br><span class="line">After 8500 traning steps .loss on all data is 1.92215</span><br><span class="line">After 9000 traning steps .loss on all data is 1.92415</span><br><span class="line">After 9500 traning steps .loss on all data is 1.92232</span><br><span class="line">After 10000 traning steps .loss on all data is 1.92602</span><br><span class="line">After 10500 traning steps .loss on all data is 1.91997</span><br><span class="line">After 11000 traning steps .loss on all data is 1.9279</span><br><span class="line">After 11500 traning steps .loss on all data is 1.91976</span><br><span class="line">After 12000 traning steps .loss on all data is 1.92452</span><br><span class="line">After 12500 traning steps .loss on all data is 1.91997</span><br><span class="line">After 13000 traning steps .loss on all data is 1.92115</span><br><span class="line">After 13500 traning steps .loss on all data is 1.9166</span><br><span class="line">After 14000 traning steps .loss on all data is 1.92266</span><br><span class="line">After 14500 traning steps .loss on all data is 1.92372</span><br><span class="line">After 15000 traning steps .loss on all data is 1.92138</span><br><span class="line">After 15500 traning steps .loss on all data is 1.92035</span><br><span class="line">After 16000 traning steps .loss on all data is 1.93678</span><br><span class="line">After 16500 traning steps .loss on all data is 1.91698</span><br><span class="line">After 17000 traning steps .loss on all data is 1.91242</span><br><span class="line">After 17500 traning steps .loss on all data is 1.91433</span><br><span class="line">After 18000 traning steps .loss on all data is 1.9214</span><br><span class="line">After 18500 traning steps .loss on all data is 1.91902</span><br><span class="line">After 19000 traning steps .loss on all data is 1.9181</span><br><span class="line">After 19500 traning steps .loss on all data is 1.92847</span><br><span class="line">After 20000 traning steps .loss on all data is 1.92319</span><br><span class="line">After 20500 traning steps .loss on all data is 1.9251</span><br><span class="line">After 21000 traning steps .loss on all data is 1.92055</span><br><span class="line">After 21500 traning steps .loss on all data is 1.92064</span><br><span class="line">After 22000 traning steps .loss on all data is 1.92688</span><br><span class="line">After 22500 traning steps .loss on all data is 1.91041</span><br><span class="line">After 23000 traning steps .loss on all data is 1.9244</span><br><span class="line">After 23500 traning steps .loss on all data is 1.91478</span><br><span class="line">After 24000 traning steps .loss on all data is 1.93026</span><br><span class="line">After 24500 traning steps .loss on all data is 1.92528</span><br><span class="line">After 25000 traning steps .loss on all data is 1.91988</span><br><span class="line">After 25500 traning steps .loss on all data is 1.92191</span><br><span class="line">After 26000 traning steps .loss on all data is 1.91879</span><br><span class="line">After 26500 traning steps .loss on all data is 1.92378</span><br><span class="line">After 27000 traning steps .loss on all data is 1.93147</span><br><span class="line">After 27500 traning steps .loss on all data is 1.92041</span><br><span class="line">After 28000 traning steps .loss on all data is 1.91586</span><br><span class="line">After 28500 traning steps .loss on all data is 1.93564</span><br><span class="line">After 29000 traning steps .loss on all data is 1.91248</span><br><span class="line">After 29500 traning steps .loss on all data is 1.9137</span><br><span class="line">After 30000 traning steps .loss on all data is 1.90911</span><br><span class="line">After 30500 traning steps .loss on all data is 1.93321</span><br><span class="line">After 31000 traning steps .loss on all data is 1.91788</span><br><span class="line">After 31500 traning steps .loss on all data is 1.9224</span><br><span class="line">After 32000 traning steps .loss on all data is 1.92398</span><br><span class="line">After 32500 traning steps .loss on all data is 1.92205</span><br><span class="line">After 33000 traning steps .loss on all data is 1.92061</span><br><span class="line">After 33500 traning steps .loss on all data is 1.93744</span><br><span class="line">After 34000 traning steps .loss on all data is 1.91723</span><br><span class="line">After 34500 traning steps .loss on all data is 1.91268</span><br><span class="line">After 35000 traning steps .loss on all data is 1.94162</span><br><span class="line">After 35500 traning steps .loss on all data is 1.92091</span><br><span class="line">After 36000 traning steps .loss on all data is 1.91968</span><br><span class="line">After 36500 traning steps .loss on all data is 1.90689</span><br><span class="line">After 37000 traning steps .loss on all data is 1.92873</span><br><span class="line">After 37500 traning steps .loss on all data is 1.92386</span><br><span class="line">After 38000 traning steps .loss on all data is 1.92536</span><br><span class="line">After 38500 traning steps .loss on all data is 1.9208</span><br><span class="line">After 39000 traning steps .loss on all data is 1.92803</span><br><span class="line">After 39500 traning steps .loss on all data is 1.91743</span><br><span class="line">After 40000 traning steps .loss on all data is 1.94342</span><br><span class="line">After 40500 traning steps .loss on all data is 1.91406</span><br><span class="line">After 41000 traning steps .loss on all data is 1.9095</span><br><span class="line">After 41500 traning steps .loss on all data is 1.91283</span><br><span class="line">After 42000 traning steps .loss on all data is 1.92122</span><br><span class="line">After 42500 traning steps .loss on all data is 1.94632</span><br><span class="line">After 43000 traning steps .loss on all data is 1.91325</span><br><span class="line">After 43500 traning steps .loss on all data is 1.94504</span><br><span class="line">After 44000 traning steps .loss on all data is 1.91904</span><br><span class="line">After 44500 traning steps .loss on all data is 1.92311</span><br><span class="line">After 45000 traning steps .loss on all data is 1.91575</span><br><span class="line">After 45500 traning steps .loss on all data is 1.9293</span><br><span class="line">After 46000 traning steps .loss on all data is 1.92475</span><br><span class="line">After 46500 traning steps .loss on all data is 1.92085</span><br><span class="line">After 47000 traning steps .loss on all data is 1.92138</span><br><span class="line">After 47500 traning steps .loss on all data is 1.93145</span><br><span class="line">After 48000 traning steps .loss on all data is 1.918</span><br><span class="line">After 48500 traning steps .loss on all data is 1.91345</span><br><span class="line">After 49000 traning steps .loss on all data is 1.91463</span><br><span class="line">After 49500 traning steps .loss on all data is 1.91008</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">W1:</span><br><span class="line"> [[1.0201502]</span><br><span class="line"> [1.042119 ]]</span><br></pre></td></tr></table></figure></p>
+<p>从结果看出，正如我们所期待的，他确实有在在往大了预测。</p>
+<h4 id="交叉熵ce-可以表征两个概率分母之间的距离"><a href="#交叉熵ce-可以表征两个概率分母之间的距离" class="headerlink" title="交叉熵ce 可以表征两个概率分母之间的距离"></a>交叉熵ce 可以表征两个概率分母之间的距离</h4><p>$$H(y__,y) = - \sum_ {} y__ * \log{y}$$</p>
+<p>交叉熵的应用，二分类问题:</p>
+<blockquote>
+<p>已知答案y_ = (1,0), 预测 $y_1$ = (0.6,0.4) 和 $y_2$ = (0.8,0.2) 那个更接近答案?</p>
+</blockquote>
+<p>$H_1((1,0),(0.6,0.4)) = -(1<em>\log{0.6} + 0 </em> \log{0.4}) \approx 0.222$<br>$H_2((1,0),(0.8,0.2)) = -(1<em>\log{0.8} + 0 </em> \log{0.2}) \approx 0.097$</p>
+<p>从以上结果可以看出 $H_2$ 更符合标准答案</p>
+<p>当m分类的n个输出($y_1,y_2,y_3…y_n$)通过<code>softmax()</code>函数以满足概率分部的要求</p>
+<p>$$\forall x,P(X=x) \in {[0,1] \bigcap \sum_ {x} P(X = x) = 1}$$</p>
+<p>  $$sorfmax(y_i) = \frac {e^{y_i}} {\sum_{i=1}^{n} e^{y_i}}$$</p>
+<h3 id="学习率α-learning-rate"><a href="#学习率α-learning-rate" class="headerlink" title="学习率α learning_rate"></a>学习率α learning_rate</h3><p>$$W_{n+1} = W_n - α·loss·\nabla$$</p>
+<p>$$更新后的参数 = 当前参数 - 学习率 \times 损失函数的导数（梯度算子）$$</p>
+<p>其中,$\nabla = \frac{\partial^2 loss}{\partial w}$</p>
+<blockquote>
+<p>例:设损失函数$loss = (w+1)^2$ 则 $\nabla = \frac{\partial^2 loss}{\partial w} = 2w+2$</p>
+</blockquote>
+<p>参数w初始化为5</p>
+<table>
+<thead>
+<tr>
+<th>次数</th>
+<th>参数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>2.6</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2.6</td>
+<td>1.16</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.16</td>
+<td>0.296</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://ww1.sinaimg.cn/large/006Uvlfagy1g0lbgmx9alj30g80fmwf2.jpg" alt=""></p>
+<p>学习率大了可能不收敛，学习率小了可能收敛太慢，故引入了指数衰减学习率的算法：</p>
+<p>$$learning__rate = learning__rate__base * learning__rate__decay^{\frac {global_step} {learning__rate__step}}$$</p>
+<p>$$学习率 = 学习率基数 * 学习率衰减率（0，1）^{\frac {运行的轮数} {多少轮更新一次}}$$</p>
+<p>其中,$learning__rate__step = \frac {SIZE} {batch__size}$,$多少轮更新一次 = \frac {数据集大小} {每次喂入神经网络的数据集大小}$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#设损失函数 loss = (w+1)^2 令w的初始值是10 反向传播求w最优</span></span><br><span class="line"><span class="comment">#使用指数衰减学习率，在迭代初期获得较高的下降速度。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">LEARNING_RATE_BASE = <span class="number">0.1</span> <span class="comment">#最初学习率</span></span><br><span class="line">LEARNING_RATE_DECAY = <span class="number">0.99</span> <span class="comment">#学习率衰减率</span></span><br><span class="line">LEARNING_RATE_STEP = <span class="number">1</span> <span class="comment"># 喂入多少轮后更新，为了方便设为1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行了多少轮bacth_size的计数器， 初始值是0 设为不可被训练</span></span><br><span class="line">global_step = tf.Variable(<span class="number">0</span>,trainable=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 定义指数下降学习率</span></span><br><span class="line">learning_rate = tf.train.exponential_decay(LEARNING_RATE_BASE,global_step,LEARNING_RATE_STEP,LEARNING_RATE_DECAY,staircase = <span class="keyword">True</span>)</span><br><span class="line"><span class="comment"># 定义待优化参数，初始值为10</span></span><br><span class="line">w  = tf.Variable(tf.constant(<span class="number">10</span>,dtype=tf.float32))</span><br><span class="line"><span class="comment"># 定义损失函数loss</span></span><br><span class="line">loss = tf.square(w+<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 定义反向传播的方法</span></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss,global_step=global_step)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成回话 训练40轮</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init_op = tf.global_variables_initializer() <span class="comment">#初始化所有变量</span></span><br><span class="line">    sess.run(init_op)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">40</span>):</span><br><span class="line">        sess.run(train_step)</span><br><span class="line">        learning_rate_val = sess.run(learning_rate)</span><br><span class="line">        w_val = sess.run(w)</span><br><span class="line">        global_step_val = sess.run(global_step)</span><br><span class="line">        loss_val = sess.run(loss)</span><br><span class="line">        print(<span class="string">"After %s steps:global_step is %f,w is %f,learning_rate is %f,loss is %f"</span> %(i,global_step_val,w_val,learning_rate_val,loss_val))</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">After 0 steps:global_step is 1.000000,w is 7.800000,learning_rate is 0.099000,loss is 77.440002</span><br><span class="line">After 1 steps:global_step is 2.000000,w is 6.057600,learning_rate is 0.098010,loss is 49.809719</span><br><span class="line">After 2 steps:global_step is 3.000000,w is 4.674169,learning_rate is 0.097030,loss is 32.196194</span><br><span class="line">After 3 steps:global_step is 4.000000,w is 3.573041,learning_rate is 0.096060,loss is 20.912704</span><br><span class="line">After 4 steps:global_step is 5.000000,w is 2.694472,learning_rate is 0.095099,loss is 13.649122</span><br><span class="line">After 5 steps:global_step is 6.000000,w is 1.991791,learning_rate is 0.094148,loss is 8.950810</span><br><span class="line">After 6 steps:global_step is 7.000000,w is 1.428448,learning_rate is 0.093207,loss is 5.897361</span><br><span class="line">After 7 steps:global_step is 8.000000,w is 0.975754,learning_rate is 0.092274,loss is 3.903603</span><br><span class="line">After 8 steps:global_step is 9.000000,w is 0.611130,learning_rate is 0.091352,loss is 2.595741</span><br><span class="line">After 9 steps:global_step is 10.000000,w is 0.316771,learning_rate is 0.090438,loss is 1.733887</span><br><span class="line">After 10 steps:global_step is 11.000000,w is 0.078598,learning_rate is 0.089534,loss is 1.163374</span><br><span class="line">After 11 steps:global_step is 12.000000,w is -0.114544,learning_rate is 0.088638,loss is 0.784033</span><br><span class="line">After 12 steps:global_step is 13.000000,w is -0.271515,learning_rate is 0.087752,loss is 0.530691</span><br><span class="line">After 13 steps:global_step is 14.000000,w is -0.399367,learning_rate is 0.086875,loss is 0.360760</span><br><span class="line">After 14 steps:global_step is 15.000000,w is -0.503727,learning_rate is 0.086006,loss is 0.246287</span><br><span class="line">After 15 steps:global_step is 16.000000,w is -0.589091,learning_rate is 0.085146,loss is 0.168846</span><br><span class="line">After 16 steps:global_step is 17.000000,w is -0.659066,learning_rate is 0.084294,loss is 0.116236</span><br><span class="line">After 17 steps:global_step is 18.000000,w is -0.716543,learning_rate is 0.083451,loss is 0.080348</span><br><span class="line">After 18 steps:global_step is 19.000000,w is -0.763853,learning_rate is 0.082617,loss is 0.055765</span><br><span class="line">After 19 steps:global_step is 20.000000,w is -0.802872,learning_rate is 0.081791,loss is 0.038859</span><br><span class="line">After 20 steps:global_step is 21.000000,w is -0.835119,learning_rate is 0.080973,loss is 0.027186</span><br><span class="line">After 21 steps:global_step is 22.000000,w is -0.861821,learning_rate is 0.080163,loss is 0.019094</span><br><span class="line">After 22 steps:global_step is 23.000000,w is -0.883974,learning_rate is 0.079361,loss is 0.013462</span><br><span class="line">After 23 steps:global_step is 24.000000,w is -0.902390,learning_rate is 0.078568,loss is 0.009528</span><br><span class="line">After 24 steps:global_step is 25.000000,w is -0.917728,learning_rate is 0.077782,loss is 0.006769</span><br><span class="line">After 25 steps:global_step is 26.000000,w is -0.930527,learning_rate is 0.077004,loss is 0.004827</span><br><span class="line">After 26 steps:global_step is 27.000000,w is -0.941226,learning_rate is 0.076234,loss is 0.003454</span><br><span class="line">After 27 steps:global_step is 28.000000,w is -0.950187,learning_rate is 0.075472,loss is 0.002481</span><br><span class="line">After 28 steps:global_step is 29.000000,w is -0.957706,learning_rate is 0.074717,loss is 0.001789</span><br><span class="line">After 29 steps:global_step is 30.000000,w is -0.964026,learning_rate is 0.073970,loss is 0.001294</span><br><span class="line">After 30 steps:global_step is 31.000000,w is -0.969348,learning_rate is 0.073230,loss is 0.000940</span><br><span class="line">After 31 steps:global_step is 32.000000,w is -0.973838,learning_rate is 0.072498,loss is 0.000684</span><br><span class="line">After 32 steps:global_step is 33.000000,w is -0.977631,learning_rate is 0.071773,loss is 0.000500</span><br><span class="line">After 33 steps:global_step is 34.000000,w is -0.980842,learning_rate is 0.071055,loss is 0.000367</span><br><span class="line">After 34 steps:global_step is 35.000000,w is -0.983565,learning_rate is 0.070345,loss is 0.000270</span><br><span class="line">After 35 steps:global_step is 36.000000,w is -0.985877,learning_rate is 0.069641,loss is 0.000199</span><br><span class="line">After 36 steps:global_step is 37.000000,w is -0.987844,learning_rate is 0.068945,loss is 0.000148</span><br><span class="line">After 37 steps:global_step is 38.000000,w is -0.989520,learning_rate is 0.068255,loss is 0.000110</span><br><span class="line">After 38 steps:global_step is 39.000000,w is -0.990951,learning_rate is 0.067573,loss is 0.000082</span><br><span class="line">After 39 steps:global_step is 40.000000,w is -0.992174,learning_rate is 0.066897,loss is 0.000061</span><br></pre></td></tr></table></figure></p>
+<p>从结果我们可以看到，随着学习率不断衰减 w的变化速度不一样 最终衰减到接近-1</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/02/28/TensorFlow学习笔记-更新中/">TensorFlow学习笔记-更新中</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
+        <p><span>发布时间:</span>2019-02-28, 17:45:41</p>
+        <p><span>最后更新:</span>2019-02-28, 17:46:51</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/28/TensorFlow学习笔记-更新中/" title="TensorFlow学习笔记-更新中">http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/01/30/list/">
+                    list
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是TensorFlow？"><span class="toc-number">1.</span> <span class="toc-text">什么是TensorFlow？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是神经网络（以下简称NN）"><span class="toc-number">2.</span> <span class="toc-text">什么是神经网络（以下简称NN）?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用TensorFlow的NN"><span class="toc-number">3.</span> <span class="toc-text">使用TensorFlow的NN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#张量-tensor"><span class="toc-number">3.1.</span> <span class="toc-text">张量(tensor)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TensorFlow的第一个例子"><span class="toc-number">3.2.</span> <span class="toc-text">TensorFlow的第一个例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算图"><span class="toc-number">3.3.</span> <span class="toc-text">计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#神经元"><span class="toc-number">3.3.1.</span> <span class="toc-text">神经元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经元的计算过程"><span class="toc-number">3.3.2.</span> <span class="toc-text">神经元的计算过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#会话Session"><span class="toc-number">3.3.3.</span> <span class="toc-text">会话Session</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#会话结构"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">会话结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NN结构的权重-参数"><span class="toc-number">3.3.4.</span> <span class="toc-text">NN结构的权重(参数)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数解释"><span class="toc-number">3.3.4.1.</span> <span class="toc-text">参数解释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络的实现过程"><span class="toc-number">3.4.</span> <span class="toc-text">神经网络的实现过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向前传播-搭建模型和推理的过程"><span class="toc-number">3.5.</span> <span class="toc-text">向前传播(搭建模型和推理的过程)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向传播-训练神经网络参数"><span class="toc-number">3.6.</span> <span class="toc-text">反向传播(训练神经网络参数)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经元模型"><span class="toc-number">3.7.</span> <span class="toc-text">神经元模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通神经元模型"><span class="toc-number">3.7.1.</span> <span class="toc-text">普通神经元模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#McCulloch-Pitts神经元模型"><span class="toc-number">3.7.2.</span> <span class="toc-text">McCulloch-Pitts神经元模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#激活函数"><span class="toc-number">3.7.2.1.</span> <span class="toc-text">激活函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络的优化"><span class="toc-number">3.8.</span> <span class="toc-text">神经网络的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数（loss-预测值y-与已知答案-y-的差距"><span class="toc-number">3.8.1.</span> <span class="toc-text">损失函数（loss) 预测值y_与已知答案(y_)的差距</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#均方误差mse"><span class="toc-number">3.8.1.1.</span> <span class="toc-text">均方误差mse:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#交叉熵ce-可以表征两个概率分母之间的距离"><span class="toc-number">3.8.1.2.</span> <span class="toc-text">交叉熵ce 可以表征两个概率分母之间的距离</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习率α-learning-rate"><span class="toc-number">3.8.2.</span> <span class="toc-text">学习率α learning_rate</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"TensorFlow学习笔记-更新中　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://yoursite.com/2019/02/28/TensorFlow学习笔记-更新中/';
+            this.page.identifier = '2019/02/28/TensorFlow学习笔记-更新中/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/01/30/list/" title="下一篇: list">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/TensorFlow学习笔记-更新中/">TensorFlow学习笔记-更新中</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/list/">list</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/IOS-Objective-C开发学习笔记-四/">IOS-Objective-C开发学习笔记-四</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/28/IOS-Objective-C开发学习笔记-三/">IOS-objc开发学习笔记-三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/28/IOS-Objective-C开发学习笔记-二/">IOS-objc开发学习笔记(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/28/IOS-Objective-C开发学习笔记（一）/">IOS/objc开发学习笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/linux-osx-把rm命令改为废纸篓/">linux/osx-把rm命令改为废纸篓</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-多变量线性回归/">吴恩达机器学习-多变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-单变量线性回归/">吴恩达机器学习-单变量线性回归</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/吴恩达机器学习-绪论/">吴恩达机器学习-绪论</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/代码共享/">代码共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/scripts-用python格式化json/">scripts - 用python格式化json</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建git服务器/">搭建git服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建wordpress个人博客/">搭建wordpress个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/盗号所启发的/">盗号所启发的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-爬虫入门/">Python-爬虫入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-微信好友分析/">Python-微信好友分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-鸡汤/">Python-鸡汤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-聊天机器人/">Python-聊天机器人</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/机器学习实战-kNN/">机器学习实战-kNN</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/Python-FCFS/">Python-FCFS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP用户注册接口/">PHP用户注册接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/PHP分页/">PHP分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Samba服务器/">搭建Samba服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DHCP服务器/">搭建DHCP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建Seafile网盘/">搭建Seafile网盘</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建LAMP环境/">搭建LAMP环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建DNS服务器/">搭建DNS服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/搭建NFS系统/">搭建NFS系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/自制一个屏蔽百度广告的chrom插件/">自制一个屏蔽百度广告的chrom插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/26/一次上岸/">一次上岸</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 Peter W
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+             title: "a.article-title, .article-more-link a", 
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
