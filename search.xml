@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>MachineLearning(Ng)-LinearRegression-Programming</title>
+      <link href="/2019/03/10/NgMLHomeWork-LinearRegression/"/>
+      <url>/2019/03/10/NgMLHomeWork-LinearRegression/</url>
+      
+        <content type="html"><![CDATA[<p><strong><strong>Continue the study and update after completing the postgraduate entrance exam,more,good luck to me.</strong></strong></p><a id="more"></a><h3 id="warmUpExercise"><a href="#warmUpExercise" class="headerlink" title="warmUpExercise"></a>warmUpExercise</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">eye</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure><h3 id="computeCost-or-Multi"><a href="#computeCost-or-Multi" class="headerlink" title="computeCost(or Multi)"></a>computeCost(or Multi)</h3><script type="math/tex; mode=display">J_{(\theta_1,\theta_2,...,\theta_n)} = \frac 1{2m} \sum_{i=1}^n (h_{(\theta)}(x) - y)^2</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp =  sum(((X * theta - y).^<span class="number">2</span>));</span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span>*m) * temp;</span><br></pre></td></tr></table></figure><h3 id="gradientDescent-or-Multi"><a href="#gradientDescent-or-Multi" class="headerlink" title="gradientDescent(or Multi)"></a>gradientDescent(or Multi)</h3><p><code>Repeat</code>{</p><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac{\partial J_{(\theta_1,\theta_2,...,\theta_n)}}{\partial \theta_j}</script><p>}</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">size</span>(X,<span class="number">2</span>)</span><br><span class="line">theta(<span class="built_in">i</span>) = GlobalTheta(<span class="built_in">i</span>) - alpha/m * sum((X*GlobalTheta-y).*X(:,<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><h3 id="featureNormalize"><a href="#featureNormalize" class="headerlink" title="featureNormalize"></a>featureNormalize</h3><script type="math/tex; mode=display">X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">size</span>(X,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">%X_norm(:,i) = (X(:,i) - (mean(X(:,i)))) / (std(X(:,i)))</span></span><br><span class="line">mu(<span class="built_in">i</span>) = <span class="built_in">mean</span>(X(:,<span class="built_in">i</span>));</span><br><span class="line">sigma(<span class="built_in">i</span>) = std(X(:,<span class="built_in">i</span>));</span><br><span class="line">X_norm(:,<span class="built_in">i</span>) = (X(:,<span class="built_in">i</span>) - mu(<span class="built_in">i</span>)) / sigma(<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><h3 id="normalEqn"><a href="#normalEqn" class="headerlink" title="normalEqn"></a>normalEqn</h3><script type="math/tex; mode=display">\theta = (X^TX)^{-1}X^TY</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theta = pinv(X' * X) * X' * y</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MachineLearning </tag>
+            
+            <tag> MATLAB/Octave </tag>
+            
+            <tag> LinearRegression </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TensorFlow学习笔记</title>
       <link href="/2019/03/01/TensorFlow-1/"/>
       <url>/2019/03/01/TensorFlow-1/</url>
