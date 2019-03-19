@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Continue the study and update after completing the postgraduate entrance exam,more,good luck to me.">
-<meta name="keywords" content="MachineLearning,MATLAB&#x2F;Octave,LinearRegression">
+<meta name="description" content="对TensorFlow官方教程的第一个项目稍作调整 配合官方教程食用更佳">
+<meta name="keywords" content="TensorFlow,MachineLearning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MachineLearning(Ng)-LinearRegression-Programming">
-<meta property="og:url" content="https://studentke.github.io/2019/03/10/NgMLHomeWork-LinearRegression/index.html">
+<meta property="og:title" content="TensorFlow-mnistd_1">
+<meta property="og:url" content="https://studentke.github.io/2019/03/14/TensorFlow-2/index.html">
 <meta property="og:site_name" content="Always Be a Student">
-<meta property="og:description" content="Continue the study and update after completing the postgraduate entrance exam,more,good luck to me.">
+<meta property="og:description" content="对TensorFlow官方教程的第一个项目稍作调整 配合官方教程食用更佳">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T10:15:40.972Z">
+<meta property="og:updated_time" content="2019-03-14T07:01:30.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MachineLearning(Ng)-LinearRegression-Programming">
-<meta name="twitter:description" content="Continue the study and update after completing the postgraduate entrance exam,more,good luck to me.">
+<meta name="twitter:title" content="TensorFlow-mnistd_1">
+<meta name="twitter:description" content="对TensorFlow官方教程的第一个项目稍作调整 配合官方教程食用更佳">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>MachineLearning(Ng)-LinearRegression-Programming | Always Be a Student</title>
+<title>TensorFlow-mnistd_1 | Always Be a Student</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -299,11 +299,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-NgMLHomeWork-LinearRegression" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-TensorFlow-2" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/10/NgMLHomeWork-LinearRegression/" class="article-date">
-      <time datetime="2019-03-10T09:43:56.000Z" itemprop="datePublished">2019-03-10</time>
+      <a href="/2019/03/14/TensorFlow-2/" class="article-date">
+      <time datetime="2019-03-14T06:52:55.000Z" itemprop="datePublished">2019-03-14</time>
 </a>
 
 
@@ -318,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      MachineLearning(Ng)-LinearRegression-Programming
+      TensorFlow-mnistd_1
     </h1>
   
 
@@ -329,7 +329,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinearRegression/">LinearRegression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB-Octave/">MATLAB/Octave</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -339,18 +339,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong><strong>Continue the study and update after completing the postgraduate entrance exam,more,good luck to me.</strong></strong></p>
+        <p><strong><strong>对TensorFlow官方教程的第一个项目稍作调整 配合官方教程食用更佳</strong></strong></p>
 <a id="more"></a>
-<h3 id="warmUpExercise"><a href="#warmUpExercise" class="headerlink" title="warmUpExercise"></a>warmUpExercise</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">eye</span>(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="computeCost-or-Multi"><a href="#computeCost-or-Multi" class="headerlink" title="computeCost(or Multi)"></a>computeCost(or Multi)</h3><script type="math/tex; mode=display">
-J_{(\theta_1,\theta_2,...,\theta_n)} = \frac 1{2m} \sum_{i=1}^n (h_{(\theta)}(x) - y)^2</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp =  sum(((X * theta - y).^<span class="number">2</span>));</span><br><span class="line">J = <span class="number">1</span> / (<span class="number">2</span>*m) * temp;</span><br></pre></td></tr></table></figure>
-<h3 id="gradientDescent-or-Multi"><a href="#gradientDescent-or-Multi" class="headerlink" title="gradientDescent(or Multi)"></a>gradientDescent(or Multi)</h3><p><code>Repeat</code>{</p>
-<script type="math/tex; mode=display">\theta_j := \theta_j - \alpha \frac{\partial J_{(\theta_1,\theta_2,...,\theta_n)}}{\partial \theta_j}</script><p>}</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">size</span>(X,<span class="number">2</span>)</span><br><span class="line">theta(<span class="built_in">i</span>) = GlobalTheta(<span class="built_in">i</span>) - alpha/m * sum((X*GlobalTheta-y).*X(:,<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="featureNormalize"><a href="#featureNormalize" class="headerlink" title="featureNormalize"></a>featureNormalize</h3><script type="math/tex; mode=display">
-X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">size</span>(X,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">%X_norm(:,i) = (X(:,i) - (mean(X(:,i)))) / (std(X(:,i)))</span></span><br><span class="line">mu(<span class="built_in">i</span>) = <span class="built_in">mean</span>(X(:,<span class="built_in">i</span>));</span><br><span class="line">sigma(<span class="built_in">i</span>) = std(X(:,<span class="built_in">i</span>));</span><br><span class="line">X_norm(:,<span class="built_in">i</span>) = (X(:,<span class="built_in">i</span>) - mu(<span class="built_in">i</span>)) / sigma(<span class="built_in">i</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h3 id="normalEqn"><a href="#normalEqn" class="headerlink" title="normalEqn"></a>normalEqn</h3><script type="math/tex; mode=display">
-\theta = (X^TX)^{-1}X^TY</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theta = pinv(X' * X) * X' * y</span><br></pre></td></tr></table></figure>
+<h2 id="获取mnist数据集"><a href="#获取mnist数据集" class="headerlink" title="获取mnist数据集"></a>获取mnist数据集</h2><ul>
+<li>数据集<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">官网</a>手动下载</li>
+<li>使用TensorFlow提供的<a href="https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/examples/tutorials/mnist/input_data.py" target="_blank" rel="noopener">input_data.py</a></li>
+</ul>
+<h2 id="mnist-train-py"><a href="#mnist-train-py" class="headerlink" title="mnist_train.py"></a>mnist_train.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"MNIST_data/"</span>, one_hot=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>,[<span class="keyword">None</span>,<span class="number">784</span>])</span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>,<span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">x提供的占位符 表示把一张图展开为784维的向陆昂 None表示第一维度的形状有784决定</span></span><br><span class="line"><span class="string">W的维度是[784，10]，</span></span><br><span class="line"><span class="string">因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，</span></span><br><span class="line"><span class="string">每一位对应不同数字类。</span></span><br><span class="line"><span class="string">b的形状是[10]，所以我们可以直接把它加到输出上面。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实现模型的训练过程</span></span><br><span class="line">y =tf.nn.softmax(tf.matmul(x,W) + b)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">为了计算交叉熵 定义一个新的占位符来输入正确的值</span></span><br><span class="line"><span class="string">y 表示预测的概率分布</span></span><br><span class="line"><span class="string">y_ 表示实际的概率分布</span></span><br><span class="line"><span class="string">通过交叉熵计算损失</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>,<span class="number">10</span>])</span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用反向传播算法来最小化模型</span></span><br><span class="line"><span class="comment"># 使用梯度下降算法 0.01的学习率来优化参数</span></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化所有变量</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    sess.run(init)</span><br><span class="line">    steps = <span class="number">1000</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,steps):</span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    随机抓取训练数据中的100个批处理数据点，</span></span><br><span class="line"><span class="string">    然后我们用这些数据点作为参数替换之前的占位符来运行train_step</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        sess.run(train_step, feed_dict=&#123;x: batch_xs, y_: batch_ys&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 评估模型</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    tf.argmax 是一个非常有用的函数，</span></span><br><span class="line"><span class="string">    它能给出某个tensor对象在某一维上的其数据最大值所在的索引值。</span></span><br><span class="line"><span class="string">    由于标签向量是由0,1组成，因此最大值1所在的索引位置就是类别标签，</span></span><br><span class="line"><span class="string">    比如tf.argmax(y,1)返回的是模型对于任一输入x预测到的标签值，</span></span><br><span class="line"><span class="string">    而 tf.argmax(y_,1) 代表正确的标签，</span></span><br><span class="line"><span class="string">    可以用 tf.equal 来检测我们的预测是否真实标签匹配(索引位置一样表示匹配)。</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line"></span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(y,<span class="number">1</span>), tf.argmax(y_,<span class="number">1</span>))</span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    这行代码会给我们一组布尔值。</span></span><br><span class="line"><span class="string">    为了确定正确预测项的比例，</span></span><br><span class="line"><span class="string">    我们可以把布尔值转换成浮点数，</span></span><br><span class="line"><span class="string">    然后取平均值。</span></span><br><span class="line"><span class="string">    例如，[True, False, True, True] 会变成 [1,0,1,1] ，取平均值后得到 0.75.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line"></span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试准确率</span></span><br><span class="line"></span><br><span class="line">    print(sess.run(accuracy, feed_dict=&#123;x: mnist.test.images, y_: mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -359,13 +354,13 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/10/NgMLHomeWork-LinearRegression/">MachineLearning(Ng)-LinearRegression-Programming</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/14/TensorFlow-2/">TensorFlow-mnistd_1</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
-        <p><span>发布时间:</span>2019-03-10, 17:43:56</p>
-        <p><span>最后更新:</span>2019-03-10, 18:15:40</p>
+        <p><span>发布时间:</span>2019-03-14, 14:52:55</p>
+        <p><span>最后更新:</span>2019-03-14, 15:01:30</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/10/NgMLHomeWork-LinearRegression/" title="MachineLearning(Ng)-LinearRegression-Programming">https://studentke.github.io/2019/03/10/NgMLHomeWork-LinearRegression/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://studentke.github.io/2019/03/10/NgMLHomeWork-LinearRegression/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/14/TensorFlow-2/" title="TensorFlow-mnistd_1">https://studentke.github.io/2019/03/14/TensorFlow-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://studentke.github.io/2019/03/14/TensorFlow-2/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -378,15 +373,15 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/14/TensorFlow-2/">
-                    TensorFlow-mnistd_1
+                <a href="/2019/03/19/DataStruct/">
+                    数据结构-C语言实现
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/01/TensorFlow-1/">
-                    TensorFlow学习笔记
+                <a href="/2019/03/10/NgMLHomeWork-LinearRegression/">
+                    MachineLearning(Ng)-LinearRegression-Programming
                 </a>
             </div>
         
@@ -398,7 +393,7 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#warmUpExercise"><span class="toc-number">1.</span> <span class="toc-text">warmUpExercise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computeCost-or-Multi"><span class="toc-number">2.</span> <span class="toc-text">computeCost(or Multi)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gradientDescent-or-Multi"><span class="toc-number">3.</span> <span class="toc-text">gradientDescent(or Multi)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#featureNormalize"><span class="toc-number">4.</span> <span class="toc-text">featureNormalize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalEqn"><span class="toc-number">5.</span> <span class="toc-text">normalEqn</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取mnist数据集"><span class="toc-number">1.</span> <span class="toc-text">获取mnist数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mnist-train-py"><span class="toc-number">2.</span> <span class="toc-text">mnist_train.py</span></a></li></ol>
         
     </div>
     <style>
@@ -434,7 +429,7 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"MachineLearning(Ng)-LinearRegression-Programming　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"TensorFlow-mnistd_1　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -453,8 +448,8 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'https://studentke.github.io/2019/03/10/NgMLHomeWork-LinearRegression/';
-            this.page.identifier = '2019/03/10/NgMLHomeWork-LinearRegression/';
+            this.page.url = 'https://studentke.github.io/2019/03/14/TensorFlow-2/';
+            this.page.identifier = '2019/03/14/TensorFlow-2/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -476,7 +471,7 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/14/TensorFlow-2/" title="上一篇: TensorFlow-mnistd_1">
+            <a href="/2019/03/19/DataStruct/" title="上一篇: 数据结构-C语言实现">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -484,7 +479,7 @@ X = \frac {X - mean} {avg}</script><figure class="highlight matlab"><table><tr><
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/01/TensorFlow-1/" title="下一篇: TensorFlow学习笔记">
+            <a href="/2019/03/10/NgMLHomeWork-LinearRegression/" title="下一篇: MachineLearning(Ng)-LinearRegression-Programming">
                 <i class="fa fa-angle-right"></i>
             </a>
         
