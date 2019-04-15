@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>如何深入直观地理解Back propagation算法</title>
+      <link href="/2019/04/14/bp/"/>
+      <url>/2019/04/14/bp/</url>
+      
+        <content type="html"><![CDATA[<p><strong>还要赶毕设 就先这么写了 以后有空再更</strong></p><h2 id="Backpropagation算法（反向传播算法）是神经网络求解最优模型的关键一步。笔者做毕设有感，就如何深入直观地理解Backpropagation算法写一篇博文-阅读此文需要些微神经网络知识和偏导数知识。"><a href="#Backpropagation算法（反向传播算法）是神经网络求解最优模型的关键一步。笔者做毕设有感，就如何深入直观地理解Backpropagation算法写一篇博文-阅读此文需要些微神经网络知识和偏导数知识。" class="headerlink" title="Backpropagation算法（反向传播算法）是神经网络求解最优模型的关键一步。笔者做毕设有感，就如何深入直观地理解Backpropagation算法写一篇博文 阅读此文需要些微神经网络知识和偏导数知识。"></a>Backpropagation算法（反向传播算法）是神经网络求解最优模型的关键一步。笔者做毕设有感，就如何深入直观地理解Backpropagation算法写一篇博文 <strong>阅读此文需要些微神经网络知识和偏导数知识</strong>。</h2><a id="more"></a><h3 id="对Backpropagation最简单粗暴的理解就是链式求导法则。"><a href="#对Backpropagation最简单粗暴的理解就是链式求导法则。" class="headerlink" title="对Backpropagation最简单粗暴的理解就是链式求导法则。"></a>对Backpropagation最简单粗暴的理解就是链式求导法则。</h3><p>要深入地理解Backpropagation，就先要了解神经网络的结构和前向传播过程。如图所示，一个非常简单的神经网络结构图：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g22g3v7al6j31q40yiaef.jpg" alt=""></p><p>按照习惯，将线上第i层到第i+1层的权重记为$w^{(i)}$,$w^{(i)}$中i层的第m个节点到i+1层的第n个节点记为$w^{(i)}_{nm}$,$a^{i}_j$表第i层额第j个输出,af表示激活函数,则此神经网络的计算过程如下:</p><script type="math/tex; mode=display">a^2_1 = af( x_1  w^{(1)}_{11} +x_2  w^{(1)}_{12} +x_3  w^{(1)}_{13})\\a^2_2 = af( x_2  w^{(1)}_{21}+ x_2  w^{(1)}_{22}+ x_2  w^{(1)}_{23})\\ y = a^2_1 w^{(2)}_{11}+ a^2_2 w^{(2)}_{12}</script><p>与线性回归类似，神经网络的目标数在最优的过程中，要不断的通过梯度下降算法来调整线上权重w。而梯度下降的主要工作就在于求出梯度算子$\nabla J$。我们假设神经网络的代价函数为$J_{w_{ij}} = J(W_{11},W_{12},…,W_{mn})$ 则:</p><script type="math/tex; mode=display">\nabla J = \frac {\partial J}{\partial w_{11}}e_{11} +...+ \frac {\partial J}{\partial w_{mn}}e_{mn}</script><p>$e_{mn}$表示正交单位向量。<br>由上图所示,有</p><script type="math/tex; mode=display">\frac {\partial y }{\partial x_1} = \frac {\partial y}{\partial h_1} \times \frac {\partial h}{\partial x_1},\frac {\partial y }{\partial x_1} = \frac {\partial y}{\partial h_2} \times \frac {\partial h}{\partial x_2}</script><p>因此，对于每一个节点p和前层节点q，由p开始，以层为单位，1为初始值，求出p对上一层的所有路线上的偏导数值乘1，再由此层开始，每个节点的更新初始值1为偏导数值乘1，再往上层迭代，最终求出p对q的偏导数。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Back propagation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C语言程序设计案例教程第二版课后答案（廖湖声）</title>
       <link href="/2019/03/19/C-Language-Practise/"/>
       <url>/2019/03/19/C-Language-Practise/</url>
