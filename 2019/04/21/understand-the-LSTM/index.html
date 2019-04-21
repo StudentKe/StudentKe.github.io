@@ -15,13 +15,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Always Be a Student">
-<meta property="og:url" content="https://studentke.github.io/archives/2019/04/index.html">
+<meta name="description" content="参考文章colah的博文，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。">
+<meta name="keywords" content="machine learning,RNN,LSTM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅浅地理解 LSTM">
+<meta property="og:url" content="https://studentke.github.io/2019/04/21/understand-the-LSTM/index.html">
 <meta property="og:site_name" content="Always Be a Student">
+<meta property="og:description" content="参考文章colah的博文，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6kzpc8yj30ou04et8p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6v6wxslj313i0mqgoi.jpg">
+<meta property="og:updated_time" content="2019-04-21T05:55:51.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Always Be a Student">
+<meta name="twitter:title" content="浅浅地理解 LSTM">
+<meta name="twitter:description" content="参考文章colah的博文，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6kzpc8yj30ou04et8p.jpg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -53,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019/4 | Always Be a Student</title>
+<title>浅浅地理解 LSTM | Always Be a Student</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +71,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -290,89 +298,202 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-understand-the-LSTM" class="article article-type-post" itemscope="" itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/04/21/understand-the-LSTM/" class="archive-article-date">
-      <time datetime="2019-04-21T05:47:04.000Z" itemprop="datePublished">04-21</time>
+    <div class="article-meta">
+      <a href="/2019/04/21/understand-the-LSTM/" class="article-date">
+      <time datetime="2019-04-21T05:47:04.000Z" itemprop="datePublished">2019-04-21</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/21/understand-the-LSTM/">浅浅地理解 LSTM</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅浅地理解 LSTM
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LSTM/">LSTM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RNN/">RNN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/machine-learning/">machine learning</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>参考文章<a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">colah的博文</a>，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。</p>
+<a id="more"></a>
+<h1 id="普通RNN和LSTM"><a href="#普通RNN和LSTM" class="headerlink" title="普通RNN和LSTM"></a>普通RNN和LSTM</h1><p>在实际应用中普通的 RNN 是非常难以训练的:<br>假设有一段关键文字“xxxx[key]xxx…xxxx”要求 RNN 分析出与 key 相关的 结果，即文字中的 key 是 RNN 进行分析所需要的关键数据。但此时 key 出现在 句子开头(t1)，此信息源的记忆要经过非常一段长的时间才可以达到最终状态点, 如图<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6kzpc8yj30ou04et8p.jpg" alt=""><br>前向传播得到误差，反向传递误差时，每次都会乘一个系数 w,当这个 w 小 于 1 时，每次反向传递都会让 RNN 的误差缩小，经过若干次误差反向传递， 到 key 状态时，误差很近似等于 0 的情况，这就叫梯度消失或者梯度弥散，反 之，如果 w 大于 1，每次反向传递都会让 RNN 的误差变大，经过若干次误差的 反向传递，到 key 的状态时，误差将会是一个非常大的数(无穷大)，这种情况 叫做梯度爆炸。这样导致很难确定一个初始值让 RNN 收敛。<br>为了解决这个问题 ，􏰀出了 Long short-term memory (简称 LSTM，下 同)，比起普通的 RNN，LSTM 引入了三个门的概念:遗忘控制门，输入控制 门，输出控制门。遗忘控制门用来确定上一个隐藏层状态的信息哪些是重要 的，输入控制们用来确定当前状态的哪些信息是重要的，输出控制门用来确定 下一个隐藏层状态。<br>LSTM 的 cell 结构图如图：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6v6wxslj313i0mqgoi.jpg" alt=""></p>
+<h1 id="LSTM-思想"><a href="#LSTM-思想" class="headerlink" title="LSTM 思想"></a>LSTM 思想</h1><p>LSTM的核心思想就是cell的状态，如图所示，最上方平行的一条线可称为“主线”，贯穿整个链，只进行少量的信息交互，信息流保持不变会很容易。</p>
+<h1 id="LSTM的三个控制门"><a href="#LSTM的三个控制门" class="headerlink" title="LSTM的三个控制门"></a>LSTM的三个控制门</h1><h2 id="遗忘控制门"><a href="#遗忘控制门" class="headerlink" title="遗忘控制门"></a>遗忘控制门</h2><p>遗忘控制门是LSTM工作的第一步，它用来决定我们从上一个细胞状态中丢弃哪些内容。遗忘控制门通过读取$h_{t-1}$和$x_t$，再通过S函数层，得出一个0-1之间的数值，得出$f_t$,对应于每个$C_{t-1}$的数字（图中表示为上方主线的输入）.其中，1表示“完全保留”，0表示“完全舍弃”。</p>
+<script type="math/tex; mode=display">f_t = \sigma(W_f\cdot[h_{t-1},x_t]+b_f)</script><p>比如，在语言模型中，细胞的状态用来预测当前<strong>主语</strong>的性别，因此，可能选出正确的<strong>代词</strong>。这时候我们将希望<strong>忘记旧的主语.</strong></p>
+<h2 id="输入控制门"><a href="#输入控制门" class="headerlink" title="输入控制门"></a>输入控制门</h2><p>输入控制门用来更新重要信息，即就是用来确定什么样的新信息需要保留在cell的状态中。</p>
+<p>输入控制门分两部分</p>
+<ul>
+<li>$h_{t-1}和x_t$先经过S函数层得到$i_t$来确定什么样的值是重要的，在通过一个tanh层得到$ \tilde {C_t}$</li>
+</ul>
+<script type="math/tex; mode=display">i_t = \sigma(W_i \cdot [h_{t-1},x_t]+b_i)\\ \tilde{C_t} = tanh(W_c \cdot [h_{t-1},x_t]+b_c)</script><p>比如，在语言模型中，我们希望增加新的<strong>主语的性别</strong>到细胞状态中，来代替需要忘记的主语。</p>
+<ul>
+<li>更新cell状态 $C_{t-1}$ 更新为$C_t$，更新过程如下</li>
+</ul>
+<script type="math/tex; mode=display">C_t = f_t * C_{t-1} + i_t * \tilde{C_t}</script><p>$ f_t <em> C_{t-1} $ 就是忘记旧的值，$ + i_t </em> \tilde{C_t} $用来添加新的值。</p>
+<h2 id="输出控制门"><a href="#输出控制门" class="headerlink" title="输出控制门"></a>输出控制门</h2><p>输出控制们用来确定我们需要输出什么值，输出值基于细胞状态。<br>我们先将$h_{t_1}$和$x_t$的组合经过S函数层，再与$C_t$经过tanh层的结果相乘，确定输出部分：</p>
+<script type="math/tex; mode=display">o_t = \sigma{W_o[h_{t-1},x_t]+b_o} \\ h_t = o_t*tanh(C_t)</script>
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/04/14/bp/" class="archive-article-date">
-      <time datetime="2019-04-14T13:27:08.000Z" itemprop="datePublished">04-14</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/14/bp/">如何深入直观地理解Back propagation算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Back-propagation/">Back propagation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/04/21/understand-the-LSTM/">浅浅地理解 LSTM</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Peter W</a></p>
+        <p><span>发布时间:</span>2019-04-21, 13:47:04</p>
+        <p><span>最后更新:</span>2019-04-21, 13:55:51</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/21/understand-the-LSTM/" title="浅浅地理解 LSTM">https://studentke.github.io/2019/04/21/understand-the-LSTM/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://studentke.github.io/2019/04/21/understand-the-LSTM/　　作者: Peter W" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/04/14/bp/">
+                    如何深入直观地理解Back propagation算法
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#普通RNN和LSTM"><span class="toc-number">1.</span> <span class="toc-text">普通RNN和LSTM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM-思想"><span class="toc-number">2.</span> <span class="toc-text">LSTM 思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM的三个控制门"><span class="toc-number">3.</span> <span class="toc-text">LSTM的三个控制门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#遗忘控制门"><span class="toc-number">3.1.</span> <span class="toc-text">遗忘控制门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入控制门"><span class="toc-number">3.2.</span> <span class="toc-text">输入控制门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出控制门"><span class="toc-number">3.3.</span> <span class="toc-text">输出控制门</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"浅浅地理解 LSTM　| Always Be a Student　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'https://studentke.github.io/2019/04/21/understand-the-LSTM/';
+            this.page.identifier = '2019/04/21/understand-the-LSTM/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/04/14/bp/" title="下一篇: 如何深入直观地理解Back propagation算法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/21/understand-the-LSTM/">浅浅地理解 LSTM</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/14/bp/">如何深入直观地理解Back propagation算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/C-Language-Practise/">C语言程序设计案例教程第二版课后答案（廖湖声）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/DataStruct/">数据结构-C语言实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/14/TensorFlow-2/">TensorFlow-mnistd_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/NgMLHomeWork-LinearRegression/">MachineLearning(Ng)-LinearRegression-Programming</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/01/TensorFlow-1/">TensorFlow学习笔记</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

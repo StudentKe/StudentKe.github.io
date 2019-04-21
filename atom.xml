@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://studentke.github.io/"/>
-  <updated>2019-04-14T13:30:23.735Z</updated>
+  <updated>2019-04-21T05:55:51.642Z</updated>
   <id>https://studentke.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅浅地理解 LSTM</title>
+    <link href="https://studentke.github.io/2019/04/21/understand-the-LSTM/"/>
+    <id>https://studentke.github.io/2019/04/21/understand-the-LSTM/</id>
+    <published>2019-04-21T05:47:04.000Z</published>
+    <updated>2019-04-21T05:55:51.642Z</updated>
+    
+    <content type="html"><![CDATA[<p>参考文章<a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">colah的博文</a>，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。</p><a id="more"></a><h1 id="普通RNN和LSTM"><a href="#普通RNN和LSTM" class="headerlink" title="普通RNN和LSTM"></a>普通RNN和LSTM</h1><p>在实际应用中普通的 RNN 是非常难以训练的:<br>假设有一段关键文字“xxxx[key]xxx…xxxx”要求 RNN 分析出与 key 相关的 结果，即文字中的 key 是 RNN 进行分析所需要的关键数据。但此时 key 出现在 句子开头(t1)，此信息源的记忆要经过非常一段长的时间才可以达到最终状态点, 如图<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6kzpc8yj30ou04et8p.jpg" alt=""><br>前向传播得到误差，反向传递误差时，每次都会乘一个系数 w,当这个 w 小 于 1 时，每次反向传递都会让 RNN 的误差缩小，经过若干次误差反向传递， 到 key 状态时，误差很近似等于 0 的情况，这就叫梯度消失或者梯度弥散，反 之，如果 w 大于 1，每次反向传递都会让 RNN 的误差变大，经过若干次误差的 反向传递，到 key 的状态时，误差将会是一个非常大的数(无穷大)，这种情况 叫做梯度爆炸。这样导致很难确定一个初始值让 RNN 收敛。<br>为了解决这个问题 ，􏰀出了 Long short-term memory (简称 LSTM，下 同)，比起普通的 RNN，LSTM 引入了三个门的概念:遗忘控制门，输入控制 门，输出控制门。遗忘控制门用来确定上一个隐藏层状态的信息哪些是重要 的，输入控制们用来确定当前状态的哪些信息是重要的，输出控制门用来确定 下一个隐藏层状态。<br>LSTM 的 cell 结构图如图：<br><img src="http://ww1.sinaimg.cn/large/006Uvlfaly1g2a6v6wxslj313i0mqgoi.jpg" alt=""></p><h1 id="LSTM-思想"><a href="#LSTM-思想" class="headerlink" title="LSTM 思想"></a>LSTM 思想</h1><p>LSTM的核心思想就是cell的状态，如图所示，最上方平行的一条线可称为“主线”，贯穿整个链，只进行少量的信息交互，信息流保持不变会很容易。</p><h1 id="LSTM的三个控制门"><a href="#LSTM的三个控制门" class="headerlink" title="LSTM的三个控制门"></a>LSTM的三个控制门</h1><h2 id="遗忘控制门"><a href="#遗忘控制门" class="headerlink" title="遗忘控制门"></a>遗忘控制门</h2><p>遗忘控制门是LSTM工作的第一步，它用来决定我们从上一个细胞状态中丢弃哪些内容。遗忘控制门通过读取$h_{t-1}$和$x_t$，再通过S函数层，得出一个0-1之间的数值，得出$f_t$,对应于每个$C_{t-1}$的数字（图中表示为上方主线的输入）.其中，1表示“完全保留”，0表示“完全舍弃”。</p><script type="math/tex; mode=display">f_t = \sigma(W_f\cdot[h_{t-1},x_t]+b_f)</script><p>比如，在语言模型中，细胞的状态用来预测当前<strong>主语</strong>的性别，因此，可能选出正确的<strong>代词</strong>。这时候我们将希望<strong>忘记旧的主语.</strong></p><h2 id="输入控制门"><a href="#输入控制门" class="headerlink" title="输入控制门"></a>输入控制门</h2><p>输入控制门用来更新重要信息，即就是用来确定什么样的新信息需要保留在cell的状态中。</p><p>输入控制门分两部分</p><ul><li>$h_{t-1}和x_t$先经过S函数层得到$i_t$来确定什么样的值是重要的，在通过一个tanh层得到$ \tilde {C_t}$</li></ul><script type="math/tex; mode=display">i_t = \sigma(W_i \cdot [h_{t-1},x_t]+b_i)\\ \tilde{C_t} = tanh(W_c \cdot [h_{t-1},x_t]+b_c)</script><p>比如，在语言模型中，我们希望增加新的<strong>主语的性别</strong>到细胞状态中，来代替需要忘记的主语。</p><ul><li>更新cell状态 $C_{t-1}$ 更新为$C_t$，更新过程如下</li></ul><script type="math/tex; mode=display">C_t = f_t * C_{t-1} + i_t * \tilde{C_t}</script><p>$ f_t <em> C_{t-1} $ 就是忘记旧的值，$ + i_t </em> \tilde{C_t} $用来添加新的值。</p><h2 id="输出控制门"><a href="#输出控制门" class="headerlink" title="输出控制门"></a>输出控制门</h2><p>输出控制们用来确定我们需要输出什么值，输出值基于细胞状态。<br>我们先将$h_{t_1}$和$x_t$的组合经过S函数层，再与$C_t$经过tanh层的结果相乘，确定输出部分：</p><script type="math/tex; mode=display">o_t = \sigma{W_o[h_{t-1},x_t]+b_o} \\ h_t = o_t*tanh(C_t)</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;参考文章&lt;a href=&quot;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;colah的博文&lt;/a&gt;，凑合凑合翻译了一下，图片是笔者本科毕业论文中所使用的图片。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="machine learning" scheme="https://studentke.github.io/tags/machine-learning/"/>
+    
+      <category term="RNN" scheme="https://studentke.github.io/tags/RNN/"/>
+    
+      <category term="LSTM" scheme="https://studentke.github.io/tags/LSTM/"/>
+    
+  </entry>
   
   <entry>
     <title>如何深入直观地理解Back propagation算法</title>
